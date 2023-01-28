@@ -7,3 +7,16 @@ This project is a WIP real estate portfolio w/ headless Wordpress CMS.
 Frontend: React, Bootstrap
 
 Backend: Wordpress
+
+## How to use
+
+```
+npm install
+npm start
+```
+
+## Testing
+
+```
+npm test
+```
