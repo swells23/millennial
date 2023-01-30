@@ -12,7 +12,7 @@ Backend: Wordpress
 
 ```
 npm install
-npm start
+npm run dev
 ```
 
 ## Testing
