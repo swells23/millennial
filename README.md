@@ -4,7 +4,7 @@
 This project is a WIP real estate portfolio w/ headless Wordpress CMS.
 
 ## Tools
-Frontend: React, Bootstrap
+Frontend: Next.js, React, Bootstrap
 
 Backend: Wordpress
 
