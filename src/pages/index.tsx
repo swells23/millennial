@@ -1,4 +1,5 @@
 import Page from './api/Page';
+
 function HomePage({ pageData }: any) {
     return (
         <>
