@@ -42,7 +42,7 @@ describe('Page API', () => {
                     pageData: MOCK_DATA
                 }
             } as PageData);
-        })
+        });
     });
 
     describe('unsuccessful GET request to wordpress Pages api', () => {
@@ -71,6 +71,6 @@ describe('Page API', () => {
 
             expect(result).toBe(undefined)
             expect(console.error).toHaveBeenCalled();
-        })
+        });
     });
 });
