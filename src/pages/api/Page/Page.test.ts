@@ -2,11 +2,11 @@ import { DOMAIN, WP_API } from '../../../data/templateMeta';
 import Page from './Page';
 import { PageData } from './Page.interfaces';
 
-const MOCK_DATA: Object = { title: 'mock title' };
-let fetchMock: any = undefined;
+const MOCK_DATA: object = { title: 'mock title' };
+let fetchMock: jest.SpyInstance | undefined = undefined;
 
 describe('Page API', () => {
-    const slug: string = 'home',
+    const slug = 'home',
         url = new URL(`${DOMAIN}/${WP_API}/pages?slug=${slug}`);
 
     describe('successful GET request to wordpress Pages api', () => {

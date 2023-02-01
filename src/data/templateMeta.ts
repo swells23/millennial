@@ -1,2 +1,2 @@
-export const DOMAIN: string = 'https://jonesmillennial.com',
-    WP_API: string = 'wp-json/wp/v2';
+export const DOMAIN = 'https://jonesmillennial.com',
+    WP_API = 'wp-json/wp/v2';

@@ -11,8 +11,8 @@ export default async function Page(slug: string): Promise<PageData | undefined> 
                 pageData
             }
         } as PageData
-    } catch (err: any) {
-        console.error(`Error: Unable to retreive data from Page API. ${err.name}: ${err.message}`);
+    } catch (err) {
+        console.error(`Error: Unable to retreive data from Page API. ${err}`);
 
         return;
     }

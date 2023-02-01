@@ -1,3 +1,4 @@
+import React from 'react';
 import Page from './api/Page';
 
 function HomePage({ pageData }: any) {
