@@ -19,6 +19,7 @@
 .env.production.local
 .htaccess
 .next
+.swc
 next-env.d.ts
 
 npm-debug.log*
