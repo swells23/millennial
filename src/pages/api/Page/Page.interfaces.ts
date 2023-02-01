@@ -1,5 +1,5 @@
 export interface PageData {
-    props: {
-        pageData: JSON
-    }
+  props: {
+    pageData: JSON;
+  };
 }

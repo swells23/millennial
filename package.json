@@ -14,7 +14,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint ./src",
+    "lint": "npx eslint ./src && npx prettier --write .",
     "test": "jest --silent"
   },
   "devDependencies": {
@@ -25,7 +25,8 @@
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.32.2",
-    "jest": "^29.4.1"
+    "jest": "^29.4.1",
+    "prettier": "2.8.3"
   },
   "eslintConfig": {
     "extends": [
