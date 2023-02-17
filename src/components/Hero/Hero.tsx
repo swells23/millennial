@@ -37,8 +37,8 @@ export default function Hero() {
             Let us help you make sound real estate investments.
           </Typography>
         </div>
-        <Link href="/#services">
-          <Button variant="contained" size="large" css={styles.ctaButton}>
+        <Link href="/#services" css={styles.ctaButton}>
+          <Button variant="contained" size="large">
             Get started
           </Button>
         </Link>

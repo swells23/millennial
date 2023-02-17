@@ -38,7 +38,7 @@ const styles: any = {
     backgroundColor: "#ffffff90",
     // border: '1px solid #3B6962',
     borderRadius: "5rem",
-    boxShadow: "0 0 .5rem #2c4e49",
+    // boxShadow: "0 0 .5rem #2c4e49",
     color: "#154d44",
     display: "flex",
     flexDirection: "column",
@@ -46,18 +46,20 @@ const styles: any = {
     justifyContent: "center",
   },
   ctaButton: {
-    animationDelay: ".2s",
-    animationDuration: "1s",
-    animationFillMode: "forwards",
-    animationName: `${fadeIn}, ${translateUp}`,
-    marginTop: "5rem",
     textDecoration: "none",
-    visibility: "hidden",
-    "&:hover": {
-      backgroundColor: "#154d44",
+    "& > button": {
+      animationDelay: ".2s",
+      animationDuration: "1s",
+      animationFillMode: "forwards",
+      animationName: `${fadeIn}, ${translateUp}`,
+      marginTop: "5rem",
+      visibility: "hidden",
+      "&:hover": {
+        backgroundColor: "#154d44"
+      }
     },
-    "& ": {
-      textDecoration: "none",
+    "& *": {
+      textDecoration: "none"
     },
   },
   socialsWrapper: {
