@@ -58,9 +58,6 @@ const styles: any = {
         backgroundColor: "#154d44"
       }
     },
-    "& *": {
-      textDecoration: "none"
-    },
   },
   socialsWrapper: {
     left: 0,
