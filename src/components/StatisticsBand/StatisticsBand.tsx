@@ -12,7 +12,7 @@ export default function StatisticsBand() {
     <Container id="about" css={styles.root} maxWidth="xl">
       <Grid container spacing={8}>
         <Grid item md={6}>
-          <Image css={styles.image} src={livingRoomImg} alt="" />
+          <Image css={styles.image} src={livingRoomImg} alt="" quality={100} />
         </Grid>
         <Grid item md={6}>
           <div css={styles.infoBlock}>
