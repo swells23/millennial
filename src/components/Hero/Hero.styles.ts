@@ -38,7 +38,7 @@ const styles: any = {
     backgroundColor: "#ffffff90",
     // border: '1px solid #3B6962',
     borderRadius: "5rem",
-    // boxShadow: '0 0 .5rem #2c4e49',
+    boxShadow: "0 0 .5rem #2c4e49",
     color: "#154d44",
     display: "flex",
     flexDirection: "column",
@@ -55,6 +55,9 @@ const styles: any = {
     visibility: "hidden",
     "&:hover": {
       backgroundColor: "#154d44",
+    },
+    "& ": {
+      textDecoration: "none",
     },
   },
   socialsWrapper: {
