@@ -5,8 +5,9 @@ export default async function Page(
   slug: string
 ): Promise<PageData | undefined> {
   try {
-    const res: Response = await fetch(
-        new URL(`${DOMAIN}/${WP_API}/pages?slug=${slug}`)
+    const fields = "title",
+      res: Response = await fetch(
+        new URL(`${DOMAIN}/${WP_API}/pages?slug=${slug}&_fields=${fields}`)
       ),
       pageData: JSON = await res.json();
 
