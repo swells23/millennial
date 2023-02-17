@@ -11,9 +11,19 @@ const styles: any = {
     position: "relative",
   },
   heroImg: {
-    filter: "brightness(50%)",
     height: "100%",
     width: "100%",
+    "& > img": {
+      filter: "brightness(50%)",
+      height: "inherit",
+      objectFit: "inherit",
+      objectPosition: "inherit",
+      width: "inherit",
+    },
+  },
+  heroImgSx: {
+    objectFit: { xs: "cover", sm: "unset" },
+    objectPosition: { xs: "25%", sm: "unset" },
   },
   heroBand: {
     left: 0,

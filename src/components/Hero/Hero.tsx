@@ -28,7 +28,9 @@ export default function Hero() {
 
   return (
     <div id="home" css={styles.root}>
-      <Image css={styles.heroImg} src={heroImg} alt="" priority />
+      <Grid css={styles.heroImg} sx={styles.heroImgSx}>
+        <Image src={heroImg} alt="" priority />
+      </Grid>
       <Container css={styles.heroBand} maxWidth="md">
         <div css={styles.heroHeading}>
           <Typography variant="h5" fontWeight={600}>
