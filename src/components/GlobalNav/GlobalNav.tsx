@@ -60,7 +60,7 @@ export default function GlobalNav() {
   return (
     <>
       <AppBar component="nav">
-        <Container>
+        <Container maxWidth="xl">
           <Toolbar disableGutters>
             <IconButton
               css={styles.mobileNavIcon}

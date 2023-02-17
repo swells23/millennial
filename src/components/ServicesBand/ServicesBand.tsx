@@ -8,7 +8,7 @@ import styles, { propStyles } from "./ServicesBand.styles";
 export default function SerivesBand() {
   return (
     <div id="services" css={styles.root}>
-      <Container>
+      <Container maxWidth="xl">
         <Grid css={styles.heading}>
           <Typography variant="h3">Our Services</Typography>
         </Grid>

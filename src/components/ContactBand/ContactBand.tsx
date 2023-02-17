@@ -9,7 +9,7 @@ import styles, { propStyles } from "./ContactBand.styles";
 
 export default function ContactBand() {
   return (
-    <Container id="contact" css={styles.root}>
+    <Container id="contact" css={styles.root} maxWidth="xl">
       <Grid container sx={styles.containerSx} spacing={propStyles.spacing}>
         <Grid item sm={6}>
           <Typography variant="h5" gutterBottom>

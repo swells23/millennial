@@ -9,7 +9,7 @@ import livingRoomImg from "../../images/living-room.jpg";
 
 export default function StatisticsBand() {
   return (
-    <Container id="about" css={styles.root}>
+    <Container id="about" css={styles.root} maxWidth="xl">
       <Grid container spacing={8}>
         <Grid item md={6}>
           <Image css={styles.image} src={livingRoomImg} alt="" />

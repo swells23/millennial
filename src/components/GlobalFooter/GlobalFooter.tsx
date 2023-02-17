@@ -14,7 +14,7 @@ export default function GlobalFooter() {
       square
       elevation={8}
     >
-      <Container>
+      <Container maxWidth="xl">
         <Typography variant="body2" component="h6">
           Copyright &#169; Millennial Realty & Investments LLC
         </Typography>

@@ -41,7 +41,7 @@ const styles: any = {
     animationFillMode: "forwards",
     animationName: `${fadeIn}, ${translateUp}`,
     marginTop: "5rem",
-    textDecoration: 'none',
+    textDecoration: "none",
     visibility: "hidden",
     "&:hover": {
       backgroundColor: "#154d44",

@@ -41,7 +41,11 @@ export default function Hero() {
           </Button>
         </Link>
       </Container>
-      <Container css={styles.socialsWrapper} sx={styles.socialsWrapperSx}>
+      <Container
+        css={styles.socialsWrapper}
+        sx={styles.socialsWrapperSx}
+        maxWidth="xl"
+      >
         <Grid css={styles.socials} sx={styles.socialsSx}>
           {renderSocials()}
         </Grid>
