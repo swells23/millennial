@@ -31,7 +31,7 @@ class MyDocument extends Document {
     };
 
     return (
-      <Html css={styles.global}>
+      <Html css={styles.global} lang="en">
         <Head />
         <body>
           <Main />

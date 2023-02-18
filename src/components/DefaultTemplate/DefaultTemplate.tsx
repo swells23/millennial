@@ -4,7 +4,7 @@ import GlobalNav from "../GlobalNav";
 import GlobalFooter from "../GlobalFooter";
 import CssBaseline from "@mui/material/CssBaseline";
 
-export default function DefaultTemplate({ children, title }: any) {
+export default function DefaultTemplate({ children, title, metaDesc }: any) {
   // add interface.ts
   const pageTitle = title && `${title} | `;
 
@@ -13,6 +13,7 @@ export default function DefaultTemplate({ children, title }: any) {
       <Head>
         <title>{`${pageTitle}Millennial Realty & Investments LLC`}</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <meta name="description" content={metaDesc || ""} />
       </Head>
       <CssBaseline />
       <GlobalNav />

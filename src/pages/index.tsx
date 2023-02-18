@@ -8,10 +8,12 @@ import Page from "./api/Page";
 
 function HomePage({ pageData }: any) {
   // add interface.ts
-  const title: string = pageData?.[0]?.title.rendered || ""; // error handle this
+  const title: string = pageData?.[0]?.title.rendered || "", // error handle this
+    metaDesc =
+      "Buying a home can be challenging, so let us make it simple. Millennial Realty Investments strives to provide you with first-class servicing for your next real estate venture.";
 
   return (
-    <DefaultTemplate title={title}>
+    <DefaultTemplate title={title} metaDesc={metaDesc}>
       <Hero />
       <StatisticsBand />
       <ServicesBand />

@@ -55,8 +55,8 @@ const styles: any = {
       marginTop: "5rem",
       visibility: "hidden",
       "&:hover": {
-        backgroundColor: "#154d44"
-      }
+        backgroundColor: "#154d44",
+      },
     },
   },
   socialsWrapper: {
