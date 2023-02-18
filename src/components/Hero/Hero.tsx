@@ -29,14 +29,7 @@ export default function Hero() {
   return (
     <div id="home" css={styles.root}>
       <Grid css={styles.heroImg} sx={styles.heroImgSx}>
-        <Image
-          src={heroImg}
-          alt=""
-          placeholder="blur"
-          fill
-          priority
-          unoptimized
-        />
+        <Image src={heroImg} alt="" priority quality={100} />
       </Grid>
       <Container css={styles.heroBand} maxWidth="md">
         <div css={styles.heroHeading}>
