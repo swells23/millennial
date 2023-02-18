@@ -15,10 +15,10 @@ const styles: any = {
     width: "100%",
     "& > img": {
       filter: "brightness(50%)",
-      // height: "inherit",
+      height: "inherit",
       objectFit: "inherit",
       objectPosition: "inherit",
-      // width: "inherit",
+      width: "inherit",
     },
   },
   heroImgSx: {
