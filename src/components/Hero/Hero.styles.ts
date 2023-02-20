@@ -12,18 +12,11 @@ const styles: any = {
   },
   heroImg: {
     height: "100%",
+    position: "relative",
     width: "100%",
     "& > img": {
       filter: "brightness(50%)",
-      height: "inherit",
-      objectFit: "inherit",
-      objectPosition: "inherit",
-      width: "inherit",
     },
-  },
-  heroImgSx: {
-    objectFit: { xs: "cover", sm: "unset" },
-    objectPosition: { xs: "25%", sm: "unset" },
   },
   heroBand: {
     left: 0,
