@@ -25,7 +25,7 @@ function HomePage({ pageData }: any) {
 export async function getStaticProps() {
   const data = await Page("home");
 
-  return data;
+  return { props: data };
 }
 
 export default HomePage;
