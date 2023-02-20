@@ -37,11 +37,11 @@ export default function Hero() {
     <div id="home" css={styles.root}>
       <Grid css={styles.heroImg} sx={styles.heroImgSx}>
         <>
-          {(!isMobile || isMobile === undefined) && (
-            <Image src={heroImg} alt="" quality={100} fill priority />
+          {(!isMobile) && (
+            <Image src={heroImg} alt="" fill priority />
           )}
-          {(isMobile || isMobile === undefined) && (
-            <Image src={mobileHeroImg} alt="" quality={100} fill priority />
+          {(isMobile) && (
+            <Image src={mobileHeroImg} alt="" fill priority />
           )}
         </>
       </Grid>
