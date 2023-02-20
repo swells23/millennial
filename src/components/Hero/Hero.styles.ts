@@ -28,6 +28,7 @@ const styles: any = {
   heroHeading: {
     animationDelay: ".2s",
     animationDuration: "1s",
+    animationFillMode: "forwards",
     animationName: `${fadeIn}, ${translateUp}`,
     backgroundColor: "#ffffff90",
     // border: '1px solid #3B6962',
