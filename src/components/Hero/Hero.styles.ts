@@ -26,7 +26,6 @@ const styles: any = {
     top: "50%",
   },
   heroHeading: {
-    animationDelay: ".5s",
     animationDuration: "1s",
     animationName: `${fadeIn}, ${translateUp}`,
     backgroundColor: "#ffffff90",
@@ -42,7 +41,7 @@ const styles: any = {
   ctaButton: {
     textDecoration: "none",
     "& > button": {
-      animationDelay: ".7s",
+      animationDelay: ".2s",
       animationDuration: "1s",
       animationFillMode: "forwards",
       animationName: `${fadeIn}, ${translateUp}`,
@@ -63,7 +62,7 @@ const styles: any = {
     bottom: { sm: "5rem" },
   },
   socials: {
-    animationDelay: ".9s",
+    animationDelay: ".4s",
     animationDuration: ".7s",
     animationFillMode: "forwards",
     position: "absolute",
