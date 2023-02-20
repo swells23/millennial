@@ -17,6 +17,10 @@ import customUseMediaQuery from "../../utils/customUseMediaQuery";
 import styles from "./Hero.styles";
 
 export default function Hero() {
+  const isMobile = customUseMediaQuery(
+    useTheme().breakpoints.down("md").split(" ")[1]
+  );
+
   const renderSocials = (): Array<any> => {
     const components: Array<any> = [Facebook, Twitter, Instagram, LinkedIn];
 
@@ -29,30 +33,17 @@ export default function Hero() {
     });
   };
 
-  const renderImg = () => {
-    const isMobile = customUseMediaQuery(
-      useTheme().breakpoints.down("sm").split(" ")[1]
-    );
-    const component = (imgSrc: any) => {
-      return <Image src={imgSrc} alt="" quality={100} fill priority />;
-    };
-
-    if (isMobile === undefined) {
-      return (
-        <>
-          {component(heroImg)}
-          {component(mobileHeroImg)}
-        </>
-      );
-    }
-
-    return isMobile ? component(mobileHeroImg) : component(heroImg);
-  };
-
   return (
     <div id="home" css={styles.root}>
       <Grid css={styles.heroImg} sx={styles.heroImgSx}>
-        {renderImg()}
+        <>
+          {(!isMobile || isMobile === undefined) && (
+            <Image src={heroImg} alt="" quality={100} fill priority />
+          )}
+          {(isMobile || isMobile === undefined) && (
+            <Image src={mobileHeroImg} alt="" quality={100} fill priority />
+          )}
+        </>
       </Grid>
       <Container css={styles.heroBand} maxWidth="md">
         <div css={styles.heroHeading}>
