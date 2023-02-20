@@ -6,14 +6,21 @@ import Twitter from "@mui/icons-material/Twitter";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import heroImg from "../../images/hero.jpg";
+import mobileHeroImg from "../../images/mobile-hero.jpg";
+import customUseMediaQuery from "../../utils/customUseMediaQuery";
 import styles from "./Hero.styles";
 
 export default function Hero() {
+  const isMobile = customUseMediaQuery(
+    useTheme().breakpoints.down("md").split(" ")[1]
+  );
+
   const renderSocials = (): Array<any> => {
     const components: Array<any> = [Facebook, Twitter, Instagram, LinkedIn];
 
@@ -28,8 +35,9 @@ export default function Hero() {
 
   return (
     <div id="home" css={styles.root}>
-      <Grid css={styles.heroImg} sx={styles.heroImgSx}>
-        <Image src={heroImg} alt="" priority quality={100} />
+      <Grid css={styles.heroImg}>
+        {!isMobile && <Image src={heroImg} alt="" fill priority />}
+        {isMobile && <Image src={mobileHeroImg} alt="" fill priority />}
       </Grid>
       <Container css={styles.heroBand} maxWidth="md">
         <div css={styles.heroHeading}>

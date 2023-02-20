@@ -12,9 +12,7 @@ export default async function Page(
       pageData: JSON = await res.json();
 
     return {
-      props: {
-        pageData,
-      },
+      pageData,
     } as PageData;
   } catch (err) {
     console.error(`Error: Unable to retreive data from Page API. ${err}`);

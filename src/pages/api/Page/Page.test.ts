@@ -35,9 +35,7 @@ describe("Page API", () => {
       const result: PageData | undefined = await Page(slug);
 
       expect(result).toEqual({
-        props: {
-          pageData: MOCK_DATA,
-        },
+        pageData: MOCK_DATA,
       } as PageData);
     });
   });
