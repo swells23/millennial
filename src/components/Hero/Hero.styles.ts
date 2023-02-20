@@ -26,6 +26,7 @@ const styles: any = {
     top: "50%",
   },
   heroHeading: {
+    animationDelay: ".2s",
     animationDuration: "1s",
     animationName: `${fadeIn}, ${translateUp}`,
     backgroundColor: "#ffffff90",
@@ -37,11 +38,12 @@ const styles: any = {
     flexDirection: "column",
     height: "5rem",
     justifyContent: "center",
+    visibility: "hidden",
   },
   ctaButton: {
     textDecoration: "none",
     "& > button": {
-      animationDelay: ".2s",
+      animationDelay: ".4s",
       animationDuration: "1s",
       animationFillMode: "forwards",
       animationName: `${fadeIn}, ${translateUp}`,
@@ -62,7 +64,7 @@ const styles: any = {
     bottom: { sm: "5rem" },
   },
   socials: {
-    animationDelay: ".4s",
+    animationDelay: ".6s",
     animationDuration: ".7s",
     animationFillMode: "forwards",
     position: "absolute",
