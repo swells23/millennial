@@ -18,6 +18,19 @@ const styles: any = {
       filter: "brightness(50%)",
     },
   },
+  heroImgSx: {
+    "& > #hero-img": {
+      display: {
+        xs: "none",
+        md: "unset",
+      },
+    },
+    "& > #mobile-hero-img": {
+      display: {
+        md: "none",
+      },
+    },
+  },
   heroBand: {
     left: 0,
     position: "absolute",
