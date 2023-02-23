@@ -19,10 +19,10 @@ module.exports = {
         // Apply these headers to all routes in your application.
         source: "/:path*",
         headers: [
-        //   {
-        //     key: "Content-Security-Policy",
-        //     value: CONTENT_SECURITY_POLICY.replace(/\s{2,}/g, " ").trim(), // replace newline w/ space
-        //   },
+          //   {
+          //     key: "Content-Security-Policy",
+          //     value: CONTENT_SECURITY_POLICY.replace(/\s{2,}/g, " ").trim(), // replace newline w/ space
+          //   },
           {
             key: "Cross-Origin-Embedder-Policy",
             value: "require-corp",
