@@ -4,5 +4,13 @@ const nextJest = require("next/jest"),
     dir: "./",
   });
 
+customJestConfig = {
+  collectCoverage: true,
+  coverageDirectory: "./coverage",
+  silent: true,
+  coveragePathIgnorePatterns: ["/node_modules/", "./src/\(data|images|styles\)"],
+  verbose: true,
+}
+
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig();
+module.exports = createJestConfig(customJestConfig);

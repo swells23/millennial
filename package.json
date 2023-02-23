@@ -20,7 +20,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "npx eslint ./src && npx prettier --write .",
-    "test": "jest --silent"
+    "test": "jest"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
