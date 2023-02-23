@@ -1,8 +1,6 @@
 const styles: any = {
   root: {
     backgroundColor: "#e5f0f9",
-    marginTop: "5rem",
-    marginBottom: "5rem",
     paddingTop: "5rem",
     paddingBottom: "5rem",
   },

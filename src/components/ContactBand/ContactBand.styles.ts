@@ -1,7 +1,7 @@
 const styles: any = {
   root: {
-    marginTop: "5rem",
-    marginBottom: "5rem",
+    paddingTop: "5rem",
+    paddingBottom: "5rem",
   },
   containerSx: {
     padding: {

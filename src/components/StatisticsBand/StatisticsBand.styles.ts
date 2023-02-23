@@ -1,13 +1,7 @@
-import {
-  fadeIn,
-  translateUp,
-  translateLeft,
-} from "../../styles/animations.styles";
-
 const styles: any = {
   root: {
-    marginTop: "5rem",
-    marginBottom: "5rem",
+    paddingTop: "5rem",
+    paddingBottom: "5rem",
   },
   image: {
     borderRadius: ".25rem",
