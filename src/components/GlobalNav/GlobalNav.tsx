@@ -14,9 +14,11 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 import Link from "next/link";
 import React, { ReactElement, useState } from "react";
 import { navItems } from "../../data/templateMeta";
+import logo from "../../images/logo.png";
 import styles from "./GlobalNav.styles";
 
 export default function GlobalNav() {
@@ -71,13 +73,20 @@ export default function GlobalNav() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography css={styles.logo} variant="h6" component="div">
-              Millennial
-              <Typography css={styles.subtitle} variant="subtitle2">
-                Realty & Investments
+            <Link css={styles.logo} href="/">
+              <Grid sx={styles.logoSx}>
+                <Image src={logo} alt="logo" fill />
+              </Grid>
+              <Typography variant="h6" component="div">
+                Millennial
+                <Typography variant="subtitle2">
+                  Realty & Investments
+                </Typography>
               </Typography>
-            </Typography>
-            <Grid sx={styles.desktopOnlySx}>{menuItems.desktop}</Grid>
+            </Link>
+            <Grid css={styles.desktopNavItems} sx={styles.desktopOnlySx}>
+              {menuItems.desktop}
+            </Grid>
           </Toolbar>
         </Container>
       </AppBar>

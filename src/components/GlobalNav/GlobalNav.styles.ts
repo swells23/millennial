@@ -2,7 +2,7 @@ const styles: any = {
   desktopOnlySx: {
     display: {
       xs: "none",
-      sm: "block",
+      sm: "flex",
     },
   },
   mobileOnlySx: {
@@ -14,11 +14,33 @@ const styles: any = {
     marginRight: ".5rem",
   },
   logo: {
-    flexGrow: 1,
-    lineHeight: "1.25",
+    alignItems: "center",
+    color: "inherit",
+    display: "flex",
+    textDecoration: "none",
+    "&:hover": {
+      cursor: "pointer",
+    },
+    "& > div": {
+      marginRight: ".5rem",
+      position: "relative",
+    },
+    "& :not(img)": {
+      lineHeight: "1.25",
+    },
   },
-  subtitle: {
-    lineHeight: "inherit",
+  logoSx: {
+    height: {
+      xs: "2.5rem",
+      sm: "3rem",
+    },
+    width: {
+      xs: "2.5rem",
+      sm: "3rem",
+    },
+  },
+  desktopNavItems: {
+    marginLeft: "auto",
   },
   navItem: {
     color: "inherit",
