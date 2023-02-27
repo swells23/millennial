@@ -75,7 +75,7 @@ export default function GlobalNav() {
             </IconButton>
             <Link css={styles.logo} href="/">
               <Grid sx={styles.logoSx}>
-                <Image src={logo} alt="logo" fill />
+                <Image src={logo} alt="logo" fill priority />
               </Grid>
               <Typography variant="h6" component="div">
                 Millennial
