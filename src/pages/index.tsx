@@ -1,9 +1,11 @@
 import React from "react";
-import ContactBand from "../components/ContactBand";
-import DefaultTemplate from "../components/DefaultTemplate";
-import Hero from "../components/Hero";
-import ServicesBand from "../components/ServicesBand";
-import StatisticsBand from "../components/StatisticsBand";
+import {
+  ContactBand,
+  Hero,
+  ServicesBand,
+  StatisticsBand,
+} from "../components/homepage";
+import DefaultTemplate from "../components/layout/DefaultTemplate";
 import Page from "./api/Page";
 
 function HomePage({ pageData }: any) {

@@ -1,0 +1,2 @@
+export { default as GlobalFooter } from "./GlobalFooter";
+export { default as GlobalNav } from "./GlobalNav";
