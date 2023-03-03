@@ -3,7 +3,7 @@ import {
   mobileTranslateLeft,
   translateLeft,
   translateUp,
-} from "../../styles/animations.styles";
+} from "../../../styles/animations.styles";
 
 const styles: any = {
   root: {

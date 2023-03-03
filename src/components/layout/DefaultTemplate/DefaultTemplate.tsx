@@ -1,7 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import GlobalNav from "../GlobalNav";
-import GlobalFooter from "../GlobalFooter";
+import { GlobalFooter, GlobalNav } from "../../pattern";
 import CssBaseline from "@mui/material/CssBaseline";
 
 export default function DefaultTemplate({ children, title, metaDesc }: any) {

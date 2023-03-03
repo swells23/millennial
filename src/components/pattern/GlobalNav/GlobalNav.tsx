@@ -1,24 +1,26 @@
 /** @jsxImportSource @emotion/react */
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import Grid from "@mui/material/Grid";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Divider,
+  Drawer,
+  Grid,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactElement, useState } from "react";
-import { navItems } from "../../data/templateMeta";
-import logo from "../../images/logo.png";
+import { navItems } from "../../../data/templateMeta";
+import logo from "../../../images/logo.png";
 import styles from "./GlobalNav.styles";
 
 export default function GlobalNav() {
