@@ -3,7 +3,12 @@ import React from "react";
 import { GlobalFooter, GlobalNav } from "../../pattern";
 import CssBaseline from "@mui/material/CssBaseline";
 
-export default function DefaultTemplate({ children, title, metaDesc }: any) {
+export default function DefaultTemplate({
+  children,
+  title,
+  metaDesc,
+  logo,
+}: any) {
   // add interface.ts
   const pageTitle = title && `${title} | `;
 
@@ -15,7 +20,7 @@ export default function DefaultTemplate({ children, title, metaDesc }: any) {
         <meta name="description" content={metaDesc || ""} />
       </Head>
       <CssBaseline />
-      <GlobalNav />
+      <GlobalNav logo={logo} />
       {children}
       <GlobalFooter />
     </>

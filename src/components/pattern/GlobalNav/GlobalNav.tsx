@@ -20,10 +20,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { ReactElement, useState } from "react";
 import { navItems } from "../../../data/templateMeta";
-import logo from "../../../images/logo.png";
 import styles from "./GlobalNav.styles";
 
-export default function GlobalNav() {
+export default function GlobalNav({ logo }: any) {
   const [mobileOpen, setMobileOpen] = useState(false),
     handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
