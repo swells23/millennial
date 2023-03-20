@@ -1,4 +1,6 @@
-export const DOMAIN = "https://jonesmillennial.com",
+export const PROTOCOL = "https",
+  HOSTNAME = "jonesmillennial.com",
+  DOMAIN = `${PROTOCOL}://${HOSTNAME}`,
   WP_API = "wp-json/wp/v2";
 
 export const navItems = [

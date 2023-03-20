@@ -1,4 +1,32 @@
 module.exports = {
+  webpack(config, { isServer }) {
+    const prefix = config.assetPrefix ?? config.basePath ?? "";
+    config.module.rules.push({
+      test: /\.mp4$/,
+      use: [
+        {
+          loader: "file-loader",
+          options: {
+            publicPath: `${prefix}/_next/static/media/`,
+            outputPath: `${isServer ? "../" : ""}static/media/`,
+            name: "[name].[hash].[ext]",
+          },
+        },
+      ],
+    });
+
+    return config;
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "jonesmillennial.com",
+        port: "",
+        pathname: "/assets/**",
+      },
+    ],
+  },
   async headers() {
     const CONTENT_SECURITY_POLICY = `
           default-src 'self';
@@ -23,10 +51,6 @@ module.exports = {
           //     key: "Content-Security-Policy",
           //     value: CONTENT_SECURITY_POLICY.replace(/\s{2,}/g, " ").trim(), // replace newline w/ space
           //   },
-          {
-            key: "Cross-Origin-Embedder-Policy",
-            value: "require-corp",
-          },
           {
             key: "Cross-Origin-Opener-Policy",
             value: "same-origin",

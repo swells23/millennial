@@ -2,6 +2,7 @@ import React from "react";
 import {
   ContactBand,
   Hero,
+  MediaCarousel,
   ServicesBand,
   StatisticsBand,
 } from "../components/homepage";
@@ -18,6 +19,7 @@ function HomePage({ pageData }: any) {
     <DefaultTemplate title={title} metaDesc={metaDesc}>
       <Hero />
       <StatisticsBand />
+      <MediaCarousel />
       <ServicesBand />
       <ContactBand />
     </DefaultTemplate>

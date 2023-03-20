@@ -10,8 +10,8 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import heroImg from "../../../images/hero.jpg";
-import mobileHeroImg from "../../../images/mobile-hero.jpg";
+import heroImg from "../../../assets/hero.jpg";
+import mobileHeroImg from "../../../assets/mobile-hero.jpg";
 import styles from "./Hero.styles";
 
 export default function Hero() {

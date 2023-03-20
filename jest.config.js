@@ -8,7 +8,7 @@ customJestConfig = {
   collectCoverage: true,
   coverageDirectory: "./coverage",
   silent: true,
-  coveragePathIgnorePatterns: ["/node_modules/", "./src/(data|images|styles)"],
+  coveragePathIgnorePatterns: ["/node_modules/", "./src/(data|assets|styles)"],
   verbose: true,
 };
 
