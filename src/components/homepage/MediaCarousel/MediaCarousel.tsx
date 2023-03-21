@@ -29,6 +29,7 @@ export default function MediaCarousel({ imageList }: { imageList: any }) {
   );
 
   const imgList: any = imageList.files.map((item: any, idx: number) => {
+    console.log(item.id)
     return (
       <Image
         key={`sale-${idx + 1}`}
