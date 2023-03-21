@@ -24,16 +24,21 @@ export default function MediaCarousel({ imageList }: { imageList: any }) {
 
     return <>{children}</>;
   };
+
   const customRenderItem = (item: any, props: any) => (
     <item.type {...item.props} {...props} />
   );
 
+  const myLoader = ({ src }: { src: any }) => {
+    return `https://drive.google.com/uc?export=view&id=${src}`
+  };
+
   const imgList: any = imageList.files.map((item: any, idx: number) => {
-    console.log(item.id)
     return (
       <Image
         key={`sale-${idx + 1}`}
-        src={`https://drive.google.com/uc?export=view&id=${item.id}`}
+        loader={myLoader}
+        src={item.id}
         alt={`sale ${idx + 1}`}
         fill
       />
