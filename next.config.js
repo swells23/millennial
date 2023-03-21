@@ -21,9 +21,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "jonesmillennial.com",
-        port: "",
-        pathname: "/assets/**",
+        hostname: "**.com",
       },
     ],
   },

@@ -6,10 +6,9 @@ import Image from "next/image";
 import React, { useRef } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { DOMAIN } from "../../../data/templateMeta";
 import styles from "./MediaCarousel.styles";
 
-export default function MediaCarousel() {
+export default function MediaCarousel({ imageList }: { imageList: any }) {
   const videoRef: any = useRef(null);
 
   const VideoSlide = ({
@@ -29,12 +28,12 @@ export default function MediaCarousel() {
     <item.type {...item.props} {...props} />
   );
 
-  const imgList: any = [1, 2, 3, 4, 5].map((item) => {
+  const imgList: any = imageList.files.map((item: any, idx: number) => {
     return (
       <Image
-        key={`sale-${item}`}
-        src={`${DOMAIN}/assets/sale${item}.jpg`}
-        alt={`sale ${item}`}
+        key={`sale-${idx + 1}`}
+        src={`https://drive.google.com/uc?export=view&id=${item.id}`}
+        alt={`sale ${idx + 1}`}
         fill
       />
     );
@@ -70,10 +69,10 @@ export default function MediaCarousel() {
                   css={styles.video}
                   controls={true}
                   preload="none"
-                  poster={`${DOMAIN}/assets/home-digital-tour-thumbnail.png`}
+                  poster="https://drive.google.com/uc?export=view&id=1dLTo2CKant5vePNIELbojBxiZTtYFPVP"
                 >
                   <source
-                    src={`https://www.googleapis.com/drive/v3/files/1eZgh5IUgr8c3Hubnzgky8kDOAqwANx00?key=${process.env.MILLENNIAL_API_KEY}&alt=media`}
+                    src="https://drive.google.com/uc?export=view&id=1eZgh5IUgr8c3Hubnzgky8kDOAqwANx00"
                     type="video/mp4"
                   />
                 </video>

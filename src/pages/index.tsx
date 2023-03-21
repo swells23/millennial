@@ -7,9 +7,10 @@ import {
   StatisticsBand,
 } from "../components/homepage";
 import DefaultTemplate from "../components/layout/DefaultTemplate";
+import GetCarouselImages from "./api/GetCarouselImages";
 import Page from "./api/Page";
 
-function HomePage({ pageData }: any) {
+function HomePage({ pageData, carouselImageList }: any) {
   // add interface.ts
   const title: string = pageData?.[0]?.title.rendered || "", // error handle this
     metaDesc =
@@ -19,7 +20,7 @@ function HomePage({ pageData }: any) {
     <DefaultTemplate title={title} metaDesc={metaDesc}>
       <Hero />
       <StatisticsBand />
-      <MediaCarousel />
+      <MediaCarousel imageList={carouselImageList} />
       <ServicesBand />
       <ContactBand />
     </DefaultTemplate>
@@ -28,8 +29,9 @@ function HomePage({ pageData }: any) {
 
 export async function getStaticProps() {
   const data = await Page("home");
+  const carouselImageList = await GetCarouselImages();
 
-  return { props: data };
+  return { props: carouselImageList };
 }
 
 export default HomePage;
