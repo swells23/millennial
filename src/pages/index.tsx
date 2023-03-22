@@ -8,11 +8,10 @@ import {
 } from "../components/homepage";
 import DefaultTemplate from "../components/layout/DefaultTemplate";
 import GetCarouselImages from "./api/GetCarouselImages";
-import Page from "./api/Page";
 
-function HomePage({ pageData, carouselImageList }: any) {
+function HomePage({ carouselImageList }: any) {
   // add interface.ts
-  const title: string = pageData?.[0]?.title.rendered || "", // error handle this
+  const title = "Home",
     metaDesc =
       "Buying a home can be challenging, so let us make it simple. Millennial Realty Investments strives to provide you with first-class servicing for your next real estate venture.";
 
@@ -28,7 +27,6 @@ function HomePage({ pageData, carouselImageList }: any) {
 }
 
 export async function getStaticProps() {
-  const data = await Page("home");
   const carouselImageList = await GetCarouselImages();
 
   return { props: carouselImageList };

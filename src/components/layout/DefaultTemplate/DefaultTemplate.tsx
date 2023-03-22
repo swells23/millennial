@@ -5,7 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 export default function DefaultTemplate({ children, title, metaDesc }: any) {
   // add interface.ts
-  const pageTitle = title && `${title} | `;
+  const pageTitle = `${title} | `;
 
   return (
     <>
