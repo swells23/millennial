@@ -75,7 +75,7 @@ export default function MediaCarousel({ imageList }: { imageList: any }) {
                   css={styles.video}
                   controls={true}
                   preload="none"
-                  poster="https://drive.google.com/uc?export=view&id=1dLTo2CKant5vePNIELbojBxiZTtYFPVP"
+                  poster="https://drive.google.com/uc?export=view&id=1oaj28coPUZaCw2WgvoTKUYgf_zGfUZ_y"
                 >
                   <source
                     src="https://drive.google.com/uc?export=view&id=1eZgh5IUgr8c3Hubnzgky8kDOAqwANx00"
