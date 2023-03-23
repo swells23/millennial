@@ -4,26 +4,34 @@ let theme: Theme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#008c75",
+      main: "#458F42",
+    },
+    secondary: {
+      main: "#37474F",
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          "&:hover": {
+            backgroundColor: theme.palette.primary.dark,
+          },
+        }),
+      },
     },
   },
 });
-//3B6962 original
-//008c75
-//628f1b
-//007c65
-//a4394c
+//5868D0
 //6066bf
-//b8482e
-//7655b1
-//c03335
-//9570c9
-//a32548
-//a37f25
-//2c89da
-//8a674f
-//a06c71
-//1e79b3
+//8A225E
+//B74E64
+//455A64
+
+//458F42
+//37474F
+//87B785 light of light primary
+//214620 dark of dark primary
 
 theme = responsiveFontSizes(theme);
 

@@ -45,16 +45,28 @@ const styles: any = {
   navItem: {
     color: "inherit",
     textDecoration: "inherit",
-    "& > button": {
-      "&:hover": {
-        backgroundColor: "#154d44",
-      },
+  },
+  desktopNavItemActiveSx: {
+    color: "primary.light",
+  },
+  mobileNavItemActiveSx: {
+    color: "primary.main",
+  },
+  desktopNavItemButtonSx: {
+    "&:hover": {
+      backgroundColor: "secondary.light",
     },
   },
   drawer: {
+    "& > div": {
+      textAlign: "center",
+    },
     "& .MuiDrawer-paper": {
       width: "15rem",
     },
+  },
+  mobileNavItemButton: {
+    textAlign: "center",
   },
 };
 

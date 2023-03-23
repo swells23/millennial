@@ -1,8 +1,10 @@
 const styles: any = {
   root: {
-    backgroundColor: "#e5f0f9",
     paddingTop: "5rem",
     paddingBottom: "5rem",
+  },
+  rootSx: {
+    backgroundColor: "primary.light",
   },
   heading: {
     textAlign: "center",

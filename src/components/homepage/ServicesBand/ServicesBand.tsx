@@ -7,7 +7,7 @@ import styles, { propStyles } from "./ServicesBand.styles";
 
 export default function SerivesBand() {
   return (
-    <div id="services" css={styles.root}>
+    <Grid id="services" css={styles.root} sx={styles.rootSx}>
       <Container maxWidth="xl">
         <Grid css={styles.heading}>
           <Typography variant="h3">Our Services</Typography>
@@ -46,7 +46,7 @@ export default function SerivesBand() {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </Grid>
   );
 }
 

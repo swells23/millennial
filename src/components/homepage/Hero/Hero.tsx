@@ -22,7 +22,11 @@ export default function Hero() {
       const id = Component.type.render.displayName;
 
       return (
-        <Component key={`social-${id}`} color="primary" fontSize="large" />
+        <Component
+          key={`social-${id}`}
+          sx={styles.socialIconSx}
+          fontSize="large"
+        />
       );
     });
   };
@@ -35,7 +39,7 @@ export default function Hero() {
       </Grid>
       <Container css={styles.heroBand} maxWidth="md">
         <div css={styles.heroHeading}>
-          <Typography variant="h5" fontWeight={600}>
+          <Typography variant="h5" fontWeight={600} color="secondary.dark">
             Let us help you make sound real estate investments.
           </Typography>
         </div>

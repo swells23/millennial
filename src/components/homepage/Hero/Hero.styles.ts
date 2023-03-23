@@ -44,14 +44,13 @@ const styles: any = {
     animationFillMode: "forwards",
     animationName: `${fadeIn}, ${translateUp}`,
     backgroundColor: "#ffffff90",
-    // border: '1px solid #3B6962',
     borderRadius: "5rem",
-    // boxShadow: "0 0 .5rem #2c4e49",
-    color: "#154d44",
     display: "flex",
     flexDirection: "column",
     height: "5rem",
     justifyContent: "center",
+    paddingLeft: "1rem",
+    paddingRight: "1rem",
     visibility: "hidden",
   },
   ctaButton: {
@@ -63,9 +62,6 @@ const styles: any = {
       animationName: `${fadeIn}, ${translateUp}`,
       marginTop: "5rem",
       visibility: "hidden",
-      "&:hover": {
-        backgroundColor: "#154d44",
-      },
     },
   },
   socialsWrapper: {
@@ -100,6 +96,9 @@ const styles: any = {
       marginBottom: { xs: "0.5rem", sm: "unset" },
       marginRight: { sm: "1rem" },
     },
+  },
+  socialIconSx: {
+    color: "primary.light",
   },
 };
 

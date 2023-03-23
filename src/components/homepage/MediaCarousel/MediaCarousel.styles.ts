@@ -22,11 +22,9 @@ const styles: any = {
       borderRadius: ".25rem",
     },
   },
-  video: {
+  image: {
     aspectRatio: "16/9",
-    height: "100%",
-    objectFit: "fill",
-    width: "100%",
+    position: "unset !important",
   },
 };
 

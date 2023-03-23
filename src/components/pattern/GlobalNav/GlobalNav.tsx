@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {
   AppBar,
-  Box,
   Button,
   Container,
   Divider,
@@ -18,6 +17,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { ReactElement, useState } from "react";
 import { navItems } from "../../../data/templateMeta";
 import logo from "../../../assets/logo.png";
@@ -29,17 +29,28 @@ export default function GlobalNav() {
       setMobileOpen((prevState) => !prevState);
     },
     getMenuItems = () => {
-      const desktopComponents: Array<ReactElement> = [],
+      const pathname = useRouter().asPath,
+        desktopComponents: Array<ReactElement> = [],
         mobileComponents: Array<ReactElement> = [];
 
       navItems.forEach((item) => {
+        const isActive = item.route === pathname;
+
         desktopComponents.push(
           <Link
             key={`navItem-${item.id}`}
             css={styles.navItem}
             href={item.route}
           >
-            <Button color="inherit">{item.title}</Button>
+            <Button
+              sx={[
+                styles.desktopNavItemButtonSx,
+                isActive && styles.desktopNavItemActiveSx,
+              ]}
+              color="inherit"
+            >
+              {item.title}
+            </Button>
           </Link>
         );
         mobileComponents.push(
@@ -49,8 +60,11 @@ export default function GlobalNav() {
             href={item.route}
           >
             <ListItem disablePadding>
-              <ListItemButton sx={{ textAlign: "center" }}>
-                <ListItemText primary={item.title} />
+              <ListItemButton css={styles.mobileNavItemButton}>
+                <ListItemText
+                  sx={isActive && styles.mobileNavItemActiveSx}
+                  primary={item.title}
+                />
               </ListItemButton>
             </ListItem>
           </Link>
@@ -63,7 +77,7 @@ export default function GlobalNav() {
 
   return (
     <>
-      <AppBar component="nav">
+      <AppBar component="nav" color="secondary">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <IconButton
@@ -102,13 +116,13 @@ export default function GlobalNav() {
             keepMounted: true,
           }}
         >
-          <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+          <div onClick={handleDrawerToggle}>
             <Typography variant="h6" sx={{ my: 2 }}>
               Millennial
             </Typography>
             <Divider />
             <List>{menuItems.mobile}</List>
-          </Box>
+          </div>
         </Drawer>
       </Grid>
     </>

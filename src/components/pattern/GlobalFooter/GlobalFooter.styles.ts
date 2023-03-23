@@ -4,8 +4,8 @@ const styles: any = {
     display: "flex",
   },
   rootSx: {
-    backgroundColor: "primary.main",
-    color: "primary.contrastText",
+    backgroundColor: "secondary.main",
+    color: "secondary.contrastText",
     minHeight: {
       xs: "3.5rem",
       sm: "4rem",
