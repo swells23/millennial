@@ -1,7 +1,8 @@
 export const PROTOCOL = "https",
-  HOSTNAME = "jonesmillennial.com",
+  HOSTNAME = "millennialrealtyinvestments.com",
   DOMAIN = `${PROTOCOL}://${HOSTNAME}`,
-  WP_API = "wp-json/wp/v2";
+  GOOGLE_DRIVE_API = "https://www.googleapis.com/drive/v3",
+  GOOGLE_DRIVE_EXPORT = "https://drive.google.com/uc?export=view";
 
 export const navItems = [
   {

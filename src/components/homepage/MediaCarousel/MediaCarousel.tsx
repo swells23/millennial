@@ -6,6 +6,7 @@ import Image from "next/image";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
 import styles from "./MediaCarousel.styles";
 
 export default function MediaCarousel({ imageList }: { imageList: any }) {
@@ -14,7 +15,7 @@ export default function MediaCarousel({ imageList }: { imageList: any }) {
   );
 
   const imgLoader = ({ src }: { src: any }) => {
-    return `https://drive.google.com/uc?export=view&id=${src}`;
+    return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
   };
 
   const imgList: any = imageList.files.map((item: any, idx: number) => {

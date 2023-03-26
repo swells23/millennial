@@ -1,3 +1,4 @@
+import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
 import { ImageData } from "./GetCarouselImages.interfaces";
 
 export default async function GetCarouselImages(): Promise<
@@ -6,7 +7,7 @@ export default async function GetCarouselImages(): Promise<
   try {
     const res: Response = await fetch(
         new URL(
-          `https://www.googleapis.com/drive/v3/files?q='${process.env.MILLENNIAL_CAROUSEL_IMAGES_ID}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
+          `${GOOGLE_DRIVE_API}/files?q='${process.env.MILLENNIAL_CAROUSEL_IMAGES_ID}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
         )
       ),
       carouselImageList: JSON = await res.json();
