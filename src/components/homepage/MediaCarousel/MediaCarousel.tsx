@@ -10,10 +10,6 @@ import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
 import styles from "./MediaCarousel.styles";
 
 export default function MediaCarousel({ imageList }: { imageList: any }) {
-  const customRenderItem = (item: any, props: any) => (
-    <item.type {...item.props} {...props} />
-  );
-
   const imgLoader = ({ src }: { src: any }) => {
     return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
   };
@@ -30,16 +26,6 @@ export default function MediaCarousel({ imageList }: { imageList: any }) {
       />
     );
   });
-  // <video
-  //   controls={true}
-  //   preload="none"
-  //   poster="https://drive.google.com/uc?export=view&id=1oaj28coPUZaCw2WgvoTKUYgf_zGfUZ_y"
-  // >
-  //   <source
-  //     src="https://drive.google.com/uc?export=view&id=1eZgh5IUgr8c3Hubnzgky8kDOAqwANx00"
-  //     type="video/mp4"
-  //   />
-  // </video>
 
   return (
     <div id="sales" css={styles.root}>

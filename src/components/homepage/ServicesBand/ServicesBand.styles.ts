@@ -10,6 +10,9 @@ const styles: any = {
     textAlign: "center",
     marginBottom: "3rem",
   },
+  video: {
+    width: '100%'
+  }
 };
 
 const propStyles: any = {

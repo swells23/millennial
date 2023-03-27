@@ -14,14 +14,17 @@ export default function SerivesBand() {
         </Grid>
         <Grid container spacing={propStyles.spacing}>
           <Grid item md={4}>
-            <Typography variant="h5" gutterBottom>
-              Short Sales
-            </Typography>
-            <Typography>
-              If you are under water on your mortgage, we can negotiate with the
-              banks on your behalf to sell your home, keep home foreclosure off
-              of your record and set you on track to own another home.
-            </Typography>
+            <video
+              css={styles.video}
+              controls={true}
+              preload="none"
+              poster="https://drive.google.com/uc?export=view&id=1oaj28coPUZaCw2WgvoTKUYgf_zGfUZ_y"
+            >
+              <source
+                src="https://drive.google.com/uc?export=view&id=1eZgh5IUgr8c3Hubnzgky8kDOAqwANx00"
+                type="video/mp4"
+              />
+            </video>
           </Grid>
           <Grid item md={4}>
             <Typography variant="h5" gutterBottom>
