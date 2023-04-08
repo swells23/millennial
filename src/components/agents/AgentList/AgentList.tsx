@@ -61,7 +61,7 @@ export default function AgentList({ data }: any) {
                 </CardContent>
                 {item.linkedin && (
                   <CardActions>
-                    <Button href={item.linkedin} size="small">
+                    <Button href={item.linkedin} size="small" target="_blank">
                       LinkedIn
                     </Button>
                   </CardActions>
