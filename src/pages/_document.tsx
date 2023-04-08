@@ -25,8 +25,10 @@ class MyDocument extends Document {
         "&": {
           scrollBehavior: "smooth !important",
         },
-        "&, body, #__next": {
-          height: "100%",
+        "& body > div": {
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
         },
       },
       bodySx: {

@@ -13,7 +13,7 @@ let theme: Theme = createTheme({
   components: {
     MuiButton: {
       styleOverrides: {
-        root: ({ theme }) => ({
+        contained: ({ theme }) => ({
           "&:hover": {
             backgroundColor: theme.palette.primary.dark,
           },

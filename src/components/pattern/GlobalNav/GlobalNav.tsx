@@ -62,7 +62,7 @@ export default function GlobalNav() {
             <ListItem disablePadding>
               <ListItemButton css={styles.mobileNavItemButton}>
                 <ListItemText
-                  sx={isActive && styles.mobileNavItemActiveSx}
+                  sx={isActive ? styles.mobileNavItemActiveSx : undefined}
                   primary={item.title}
                 />
               </ListItemButton>
@@ -77,7 +77,7 @@ export default function GlobalNav() {
 
   return (
     <>
-      <AppBar component="nav" color="secondary">
+      <AppBar component="nav" color="secondary" position="sticky">
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <IconButton

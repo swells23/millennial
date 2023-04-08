@@ -2,6 +2,7 @@ const styles: any = {
   root: {
     alignItems: "center",
     display: "flex",
+    marginTop: "auto",
   },
   rootSx: {
     backgroundColor: "secondary.main",

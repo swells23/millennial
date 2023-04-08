@@ -7,8 +7,13 @@ import {
 
 const styles: any = {
   root: {
-    height: "100%",
     position: "relative",
+  },
+  rootSx: {
+    height: {
+      xs: "calc(100vh - 3.5rem)",
+      md: "calc(100vh - 4rem)",
+    },
   },
   heroImg: {
     height: "100%",
@@ -36,7 +41,7 @@ const styles: any = {
     position: "absolute",
     right: 0,
     textAlign: "center",
-    top: "50%",
+    top: "45%",
   },
   heroHeading: {
     animationDelay: ".2s",

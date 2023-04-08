@@ -32,7 +32,7 @@ export default function Hero() {
   };
 
   return (
-    <div id="home" css={styles.root}>
+    <Grid id="home" css={styles.root} sx={styles.rootSx}>
       <Grid css={styles.heroImg} sx={styles.heroImgSx}>
         <Image id="hero-img" src={heroImg} alt="" fill priority />
         <Image id="mobile-hero-img" src={mobileHeroImg} alt="" fill priority />
@@ -58,7 +58,7 @@ export default function Hero() {
           {renderSocials()}
         </Grid>
       </Container>
-    </div>
+    </Grid>
   );
 }
 

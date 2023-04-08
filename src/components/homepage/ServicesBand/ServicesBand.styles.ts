@@ -4,23 +4,19 @@ const styles: any = {
     paddingBottom: "5rem",
   },
   rootSx: {
-    backgroundColor: "primary.light",
+    backgroundColor: "#87B785",
   },
   heading: {
     textAlign: "center",
     marginBottom: "3rem",
   },
   video: {
-    width: '100%'
-  }
-};
-
-const propStyles: any = {
-  spacing: {
-    xs: 8,
-    md: 12,
+    borderRadius: ".25rem",
+    width: "100%",
+    "&:hover": {
+      cursor: "pointer",
+    },
   },
 };
 
 export default styles;
-export { propStyles };
