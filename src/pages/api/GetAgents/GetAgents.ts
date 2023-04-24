@@ -1,5 +1,8 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
-import { AgentData } from "./GetAgents.interfaces";
+
+interface AgentData {
+  agentList: JSON;
+}
 
 export default async function GetAgents(): Promise<AgentData | undefined> {
   try {

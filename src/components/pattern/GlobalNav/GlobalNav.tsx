@@ -23,12 +23,17 @@ import { navItems } from "../../../data/templateMeta";
 import logo from "../../../assets/logo.png";
 import styles from "./GlobalNav.styles";
 
+interface MenuItems {
+  desktop: Array<ReactElement>;
+  mobile: Array<ReactElement>;
+}
+
 export default function GlobalNav() {
   const [mobileOpen, setMobileOpen] = useState(false),
     handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
     },
-    getMenuItems = () => {
+    getMenuItems = (): MenuItems => {
       const pathname = useRouter().asPath,
         desktopComponents: Array<ReactElement> = [],
         mobileComponents: Array<ReactElement> = [];
@@ -73,7 +78,7 @@ export default function GlobalNav() {
 
       return { desktop: desktopComponents, mobile: mobileComponents };
     },
-    menuItems = getMenuItems();
+    menuItems: MenuItems = getMenuItems();
 
   return (
     <>
@@ -128,5 +133,3 @@ export default function GlobalNav() {
     </>
   );
 }
-
-// Reminder: proptypes & defaultprops

@@ -37,5 +37,3 @@ export default function ContactBand() {
     </Container>
   );
 }
-
-// Reminder: proptypes & defaultprops

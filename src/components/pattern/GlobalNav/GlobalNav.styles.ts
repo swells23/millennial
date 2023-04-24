@@ -1,4 +1,8 @@
-const styles: any = {
+interface StylesObj {
+  [key: string]: any;
+}
+
+const styles: StylesObj = {
   desktopOnlySx: {
     display: {
       xs: "none",

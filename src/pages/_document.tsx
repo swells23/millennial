@@ -10,6 +10,10 @@ import Document, {
 } from "next/document";
 import React from "react";
 
+interface StylesObj {
+  [key: string]: any;
+}
+
 class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
@@ -20,7 +24,7 @@ class MyDocument extends Document {
   }
 
   render() {
-    const styles: any = {
+    const styles: StylesObj = {
       global: {
         "&": {
           scrollBehavior: "smooth !important",

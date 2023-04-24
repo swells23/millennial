@@ -5,7 +5,11 @@ import {
   translateUp,
 } from "../../../styles/animations.styles";
 
-const styles: any = {
+interface StylesObj {
+  [key: string]: any;
+}
+
+const styles: StylesObj = {
   root: {
     position: "relative",
   },

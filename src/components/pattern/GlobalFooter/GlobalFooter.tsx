@@ -22,5 +22,3 @@ export default function GlobalFooter() {
     </Paper>
   );
 }
-
-// Reminder: proptypes & defaultprops

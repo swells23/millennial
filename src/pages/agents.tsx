@@ -3,8 +3,24 @@ import AgentList from "../components/agents/AgentList";
 import DefaultTemplate from "../components/layout/DefaultTemplate";
 import GetAgents from "./api/GetAgents";
 
-function Agents({ agentList }: any) {
-  // add interface.ts
+interface AgentData {
+  agentList: JSON;
+}
+
+interface StaticProps {
+  props: AgentData | undefined;
+}
+
+interface Agent {
+  name: string;
+  title: string;
+  email?: string;
+  phone?: string;
+  picture: string;
+  linkedin?: string;
+}
+
+function Agents({ agentList }: { agentList: Array<Agent> | undefined }) {
   const title = "Agents",
     metaDesc =
       "Buying a home can be challenging, so let us make it simple. Millennial Realty Investments strives to provide you with first-class servicing for your next real estate venture.";
@@ -16,8 +32,8 @@ function Agents({ agentList }: any) {
   );
 }
 
-export async function getStaticProps() {
-  const agentList = await GetAgents();
+export async function getStaticProps(): Promise<StaticProps> {
+  const agentList: AgentData | undefined = await GetAgents();
 
   return { props: agentList };
 }

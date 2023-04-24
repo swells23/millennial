@@ -58,5 +58,3 @@ export default function SerivesBand() {
     </Grid>
   );
 }
-
-// Reminder: proptypes & defaultprops

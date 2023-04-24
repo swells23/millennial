@@ -9,8 +9,25 @@ import {
 import DefaultTemplate from "../components/layout/DefaultTemplate";
 import GetCarouselImages from "./api/GetCarouselImages";
 
-function HomePage({ carouselImageList }: any) {
-  // add interface.ts
+interface ImageData {
+  carouselImageList: JSON;
+}
+
+interface StaticProps {
+  props: ImageData | undefined;
+}
+
+interface ImageListItem {
+  id: string;
+  [key: string]: unknown;
+}
+
+interface ImageList {
+  files: Array<ImageListItem>;
+  [key: string]: unknown;
+}
+
+function HomePage({ carouselImageList }: { carouselImageList: ImageList }) {
   const title = "Home",
     metaDesc =
       "Buying a home can be challenging, so let us make it simple. Millennial Realty Investments strives to provide you with first-class servicing for your next real estate venture.";
@@ -26,8 +43,8 @@ function HomePage({ carouselImageList }: any) {
   );
 }
 
-export async function getStaticProps() {
-  const carouselImageList = await GetCarouselImages();
+export async function getStaticProps(): Promise<StaticProps> {
+  const carouselImageList: ImageData | undefined = await GetCarouselImages();
 
   return { props: carouselImageList };
 }

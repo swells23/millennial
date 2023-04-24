@@ -1,4 +1,8 @@
-const styles: any = {
+interface StylesObj {
+  [key: string]: any;
+}
+
+const styles: StylesObj = {
   root: {
     paddingTop: "2rem",
     paddingBottom: "2rem",

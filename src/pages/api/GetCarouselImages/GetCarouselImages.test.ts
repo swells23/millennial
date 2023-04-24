@@ -1,8 +1,15 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
 import GetCarouselImages from "./GetCarouselImages";
-import { ImageData } from "./GetCarouselImages.interfaces";
 
-const MOCK_DATA: object = { name: "mock name" };
+interface ImageData {
+  carouselImageList: JSON;
+}
+
+interface MockData {
+  name: string;
+}
+
+const MOCK_DATA: MockData = { name: "mock name" };
 let fetchMock: jest.SpyInstance | undefined = undefined;
 
 describe("GetCarouselImages API", () => {
@@ -28,9 +35,10 @@ describe("GetCarouselImages API", () => {
     it("returns carouselImageList prop", async () => {
       const result: ImageData | undefined = await GetCarouselImages();
 
+      expect(fetchMock).toHaveBeenCalledWith(url);
       expect(result).toEqual({
         carouselImageList: MOCK_DATA,
-      } as ImageData);
+      });
     });
   });
 
@@ -50,6 +58,7 @@ describe("GetCarouselImages API", () => {
 
       const result: ImageData | undefined = await GetCarouselImages();
 
+      expect(fetchMock).toHaveBeenCalledWith(url);
       expect(result).toBe(undefined);
       expect(console.error).toHaveBeenCalled();
     });

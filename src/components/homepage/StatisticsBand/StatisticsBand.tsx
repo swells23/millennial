@@ -59,5 +59,3 @@ export default function StatisticsBand() {
     </Container>
   );
 }
-
-// Reminder: proptypes & defaultprops

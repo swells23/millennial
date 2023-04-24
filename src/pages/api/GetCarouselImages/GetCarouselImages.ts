@@ -1,5 +1,8 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
-import { ImageData } from "./GetCarouselImages.interfaces";
+
+interface ImageData {
+  carouselImageList: JSON;
+}
 
 export default async function GetCarouselImages(): Promise<
   ImageData | undefined

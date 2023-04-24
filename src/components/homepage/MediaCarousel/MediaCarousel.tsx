@@ -3,29 +3,40 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2"; // Experimental Grid
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
-import React from "react";
+import React, { ReactElement } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
 import styles from "./MediaCarousel.styles";
 
-export default function MediaCarousel({ imageList }: { imageList: any }) {
-  const imgLoader = ({ src }: { src: any }) => {
-    return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
-  };
+interface ImageListItem {
+  id: string;
+  [key: string]: unknown;
+}
 
-  const imgList: any = imageList.files.map((item: any, idx: number) => {
-    return (
-      <Image
-        css={styles.image}
-        key={`sale-${idx + 1}`}
-        loader={imgLoader}
-        src={item.id}
-        alt={`sale ${idx + 1}`}
-        fill
-      />
-    );
-  });
+interface ImageList {
+  files: Array<ImageListItem>;
+  [key: string]: unknown;
+}
+
+export default function MediaCarousel({ imageList }: { imageList: ImageList }) {
+  const imgLoader = ({ src }: { src: string }) => {
+      return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
+    },
+    renderImgList = (): Array<ReactElement> => {
+      return imageList?.files.map((item: ImageListItem, idx: number) => {
+        return (
+          <Image
+            css={styles.image}
+            key={`sale-${idx + 1}`}
+            loader={imgLoader}
+            src={item.id}
+            alt={`sale ${idx + 1}`}
+            fill
+          />
+        );
+      });
+    };
 
   return (
     <div id="sales" css={styles.root}>
@@ -50,7 +61,7 @@ export default function MediaCarousel({ imageList }: { imageList: any }) {
               showStatus={false}
               showThumbs={false}
             >
-              {imgList}
+              {renderImgList()}
             </Carousel>
           </Grid>
         </Grid>
@@ -58,5 +69,3 @@ export default function MediaCarousel({ imageList }: { imageList: any }) {
     </div>
   );
 }
-
-// Reminder: proptypes & defaultprops
