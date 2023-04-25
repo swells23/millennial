@@ -42,7 +42,7 @@ export default function AgentList({
       data?.map((item: Agent) => {
         return (
           <Grid item key={item.name} xs={12} lg={6}>
-            <Card>
+            <Card sx={styles.card}>
               <Grid container direction={{ xs: "row", sm: "row" }}>
                 <Grid item sx={styles.cardImageWrapperSx} xs={5} sm={4}>
                   <CardMedia
@@ -52,14 +52,18 @@ export default function AgentList({
                     title={item.name}
                   />
                 </Grid>
-                <Grid item sx={styles.cardNameMobileSx} xs={7}>
+                <Grid
+                  item
+                  sx={[styles.cardNameSx, styles.cardNameMobileSx]}
+                  xs={7}
+                >
                   <CardContent>
                     {renderCardName(item.name, item.title)}
                   </CardContent>
                 </Grid>
                 <Grid item xs={4} sm={8}>
-                  <CardContent>
-                    <Grid sx={styles.cardNameDesktopSx}>
+                  <CardContent color="secondary">
+                    <Grid sx={[styles.cardNameSx, styles.cardNameDesktopSx]}>
                       {renderCardName(item.name, item.title)}
                     </Grid>
                     <Grid css={styles.contactInfo} sx={styles.contactInfoSx}>
@@ -93,7 +97,9 @@ export default function AgentList({
 
   return (
     <Container css={styles.root} maxWidth="xl">
-      <Grid container>{renderAgentCards()}</Grid>
+      <Grid container spacing={4}>
+        {renderAgentCards()}
+      </Grid>
     </Container>
   );
 }
