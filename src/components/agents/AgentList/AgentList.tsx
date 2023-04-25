@@ -42,8 +42,8 @@ export default function AgentList({
       data?.map((item: Agent) => {
         return (
           <Grid item key={item.name} xs={12} lg={6}>
-            <Card sx={styles.card}>
-              <Grid container direction={{ xs: "row", sm: "row" }}>
+            <Card css={styles.card}>
+              <Grid container>
                 <Grid item sx={styles.cardImageWrapperSx} xs={5} sm={4}>
                   <CardMedia
                     css={styles.cardImage}
