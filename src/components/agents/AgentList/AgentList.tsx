@@ -8,6 +8,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
+import Skeleton from "@mui/material/Skeleton";
+import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import styles from "./AgentList.styles";
@@ -30,12 +33,53 @@ export default function AgentList({
       return (
         <>
           <Typography variant="h5" component="div">
-            {name}
+            {name ? name : <Skeleton css={styles.nameSkeleton} />}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {title}
+            {title ? title : <Skeleton css={styles.titleSkeleton} />}
           </Typography>
         </>
+      );
+    },
+    renderContact = (
+      name: string,
+      contactType: string | undefined,
+      Icon: OverridableComponent<SvgIconTypeMap<object, "svg">>
+    ) => {
+      if (name) {
+        if (contactType) {
+          return (
+            <Typography css={styles.textIcon}>
+              <Icon color="primary" />
+              {contactType}
+            </Typography>
+          );
+        } else {
+          return;
+        }
+      }
+
+      return <Skeleton css={styles.contactSkeleton} />;
+    },
+    renderLinks = (name: string, linkedin: string | undefined) => {
+      if (name) {
+        if (linkedin) {
+          return (
+            <CardActions>
+              <Button href={linkedin} size="small" target="_blank">
+                LinkedIn
+              </Button>
+            </CardActions>
+          );
+        } else {
+          return;
+        }
+      }
+
+      return (
+        <CardActions>
+          <Skeleton css={styles.linksSkeleton} />
+        </CardActions>
       );
     },
     renderAgentCards = () =>
@@ -61,33 +105,17 @@ export default function AgentList({
                     {renderCardName(item.name, item.title)}
                   </CardContent>
                 </Grid>
-                <Grid item xs={4} sm={8}>
+                <Grid item xs={12} sm={8}>
                   <CardContent color="secondary">
                     <Grid sx={[styles.cardNameSx, styles.cardNameDesktopSx]}>
                       {renderCardName(item.name, item.title)}
                     </Grid>
                     <Grid css={styles.contactInfo} sx={styles.contactInfoSx}>
-                      {item.phone && (
-                        <Typography css={styles.textIcon}>
-                          <Phone color="primary" />
-                          {item.phone}
-                        </Typography>
-                      )}
-                      {item.email && (
-                        <Typography css={styles.textIcon}>
-                          <Email color="primary" />
-                          {item.email}
-                        </Typography>
-                      )}
+                      {renderContact(item.name, item.phone, Phone)}
+                      {renderContact(item.name, item.email, Email)}
                     </Grid>
                   </CardContent>
-                  {item.linkedin && (
-                    <CardActions>
-                      <Button href={item.linkedin} size="small" target="_blank">
-                        LinkedIn
-                      </Button>
-                    </CardActions>
-                  )}
+                  {renderLinks(item.name, item.linkedin)}
                 </Grid>
               </Grid>
             </Card>

@@ -61,6 +61,24 @@ const styles: StylesObj = {
       marginRight: "1rem",
     },
   },
+  nameSkeleton: {
+    fontSize: "1.5rem",
+    maxWidth: "15rem",
+  },
+  titleSkeleton: {
+    fontSize: "0.875rem",
+    maxWidth: "12rem",
+  },
+  contactSkeleton: {
+    fontSize: "1rem",
+    maxWidth: "15rem",
+    width: "100%",
+  },
+  linksSkeleton: {
+    fontSize: "0.875rem",
+    maxWidth: "15rem",
+    width: "100%",
+  },
 };
 
 export default styles;
