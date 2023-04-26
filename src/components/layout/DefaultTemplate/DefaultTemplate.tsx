@@ -20,6 +20,10 @@ export default function DefaultTemplate({
         <title>{`${pageTitle}Millennial Realty & Investments LLC`}</title>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <meta name="description" content={metaDesc} />
+        <meta
+          charSet="keywords"
+          content="Real Estate,Millennial,Realty,Investments,Stanley Jones"
+        />
       </Head>
       <CssBaseline />
       <GlobalNav />
