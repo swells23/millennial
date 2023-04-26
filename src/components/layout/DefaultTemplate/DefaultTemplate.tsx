@@ -26,7 +26,7 @@ export default function DefaultTemplate({
         />
         <script type="application/ld+json">
           {`{
-              "name":"Millennial Realty & Investments",
+              "name":"Millennial Realty & Investments LLC",
               "url":"https://www.millennialrealtyinvestments.com"
           }`}
         </script>
