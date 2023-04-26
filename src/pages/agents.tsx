@@ -23,7 +23,7 @@ interface Agent {
 function Agents({ agentList }: { agentList: Array<Agent> | undefined }) {
   const title = "Agents",
     metaDesc =
-      "Buying a home can be challenging, so let us make it simple. Millennial Realty Investments strives to provide you with first-class servicing for your next real estate venture.";
+      "Our exceptional team of brokers work hard to provide world-class services to our clients.";
 
   return (
     <DefaultTemplate title={title} metaDesc={metaDesc}>

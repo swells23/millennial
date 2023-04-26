@@ -30,7 +30,7 @@ interface ImageList {
 function HomePage({ carouselImageList }: { carouselImageList: ImageList }) {
   const title = "Home",
     metaDesc =
-      "Buying a home can be challenging, so let us make it simple. Millennial Realty Investments strives to provide you with first-class servicing for your next real estate venture.";
+      "Buying a home can be challenging, so let us make it simple. Millennial Realty & Investments strives to provide you with world-class servicing for your next real estate venture.";
 
   return (
     <DefaultTemplate title={title} metaDesc={metaDesc}>

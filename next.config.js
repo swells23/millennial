@@ -38,54 +38,62 @@ module.exports = {
           script-src-attr 'none';
           style-src 'self' https: 'unsafe-inline';
           upgrade-insecure-requests
-      `;
+      `,
+      headers = [
+        //   {
+        //     key: "Content-Security-Policy",
+        //     value: CONTENT_SECURITY_POLICY.replace(/\s{2,}/g, " ").trim(), // replace newline w/ space
+        //   },
+        {
+          key: "Cross-Origin-Opener-Policy",
+          value: "same-origin",
+        },
+        {
+          key: "Cross-Origin-Resource-Policy",
+          value: "same-origin",
+        },
+        {
+          key: "Referrer-Policy",
+          value: "no-referrer",
+        },
+        {
+          key: "Strict-Transport-Security",
+          value: "max-age=15552000; includeSubDomains",
+        },
+        {
+          key: "X-Content-Type-Options",
+          value: "nosniff",
+        },
+        {
+          key: "X-DNS-Prefetch-Control",
+          value: "off",
+        },
+        {
+          key: "X-Frame-Options",
+          value: "SAMEORIGIN",
+        },
+        {
+          key: "X-Permitted-Cross-Domain-Policies",
+          value: "none",
+        },
+        {
+          key: "X-XSS-Protection",
+          value: "0",
+        },
+      ];
+
+    if (process.env.NEXT_VERCEL_ENV === "preview") {
+      headers.push({
+        key: "X-Robots-Tag",
+        value: "noindex, nofollow",
+      });
+    }
 
     return [
       {
         // Apply these headers to all routes in your application.
         source: "/:path*",
-        headers: [
-          //   {
-          //     key: "Content-Security-Policy",
-          //     value: CONTENT_SECURITY_POLICY.replace(/\s{2,}/g, " ").trim(), // replace newline w/ space
-          //   },
-          {
-            key: "Cross-Origin-Opener-Policy",
-            value: "same-origin",
-          },
-          {
-            key: "Cross-Origin-Resource-Policy",
-            value: "same-origin",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "no-referrer",
-          },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=15552000; includeSubDomains",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-DNS-Prefetch-Control",
-            value: "off",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
-            key: "X-Permitted-Cross-Domain-Policies",
-            value: "none",
-          },
-          {
-            key: "X-XSS-Protection",
-            value: "0",
-          },
-        ],
+        headers: headers,
       },
     ];
   },

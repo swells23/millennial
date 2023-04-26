@@ -12,7 +12,7 @@ export default function DefaultTemplate({
   title: string;
   metaDesc: string;
 }) {
-  const pageTitle = title && `${title} | `;
+  const pageTitle = title && `${title} - `;
 
   return (
     <>
