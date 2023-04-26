@@ -24,6 +24,12 @@ export default function DefaultTemplate({
           charSet="keywords"
           content="Real Estate,Millennial,Realty,Investments,Stanley Jones"
         />
+        <script type="application/ld+json">
+          {`
+            "name":"Millennial Realty & Investments",
+            "url":"https://www.millennialrealtyinvestments.com"
+          `}
+        </script>
       </Head>
       <CssBaseline />
       <GlobalNav />
