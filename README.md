@@ -2,7 +2,7 @@
 
 ## Greetings!
 
-This project is a WIP real estate portfolio that connects with the Google Drive API to easily manage media assets. This support will allow the client to INSTANTLY add, edit, or remove media content on their website through the comfort and simplicity of Google Drive.
+This project is a WIP real estate portfolio that connects with the Google Drive API to easily manage media assets. This support will allow the client to add, edit, or remove media content on their website through the comfort and simplicity of Google Drive.
 
 ## Tools
 
