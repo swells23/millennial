@@ -9,8 +9,8 @@ export default function DefaultTemplate({
   metaDesc,
 }: {
   children?: ReactNode;
-  title: string;
-  metaDesc: string;
+  title?: string;
+  metaDesc?: string;
 }) {
   const pageTitle = title && `${title} - `;
 
@@ -39,7 +39,7 @@ export default function DefaultTemplate({
   );
 }
 
-DefaultTemplate.defaultTemplate = {
+DefaultTemplate.defaultProps = {
   title: "",
   metaDesc: "",
 };
