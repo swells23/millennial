@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import Facebook from "@mui/icons-material/Facebook";
-import Instagram from "@mui/icons-material/Instagram";
+import House from "@mui/icons-material/House";
 import LinkedIn from "@mui/icons-material/LinkedIn";
-import Twitter from "@mui/icons-material/Twitter";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -16,24 +15,39 @@ import heroImg from "../../../assets/hero.jpg";
 import mobileHeroImg from "../../../assets/mobile-hero.jpg";
 import styles from "./Hero.styles";
 
+interface Icon {
+  icon: OverridableComponent<SvgIconTypeMap<object, "svg">> & {
+    muiName: string;
+    type?: { render: { displayName: string } };
+  };
+  href: string;
+}
+
 export default function Hero() {
   const renderSocials = (): Array<ReactNode> => {
-    const components: Array<
-      OverridableComponent<SvgIconTypeMap<object, "svg">> & {
-        muiName: string;
-        type?: { render: { displayName: string } };
-      }
-    > = [Facebook, Twitter, Instagram, LinkedIn];
+    const components: Array<Icon> = [
+      {
+        icon: Facebook,
+        href: "https://www.facebook.com/millennialrealtyinvestments/",
+      },
+      {
+        icon: LinkedIn,
+        href: "https://www.linkedin.com/in/stanley-jones-55717649/",
+      },
+      {
+        icon: House,
+        href: "https://www.realtor.com/realestateagency/6162f1f7c04ad10012efc8c4/",
+      },
+    ];
 
-    return components.map((Component, idx) => {
-      const id: string | number = Component.type?.render.displayName || idx;
+    return components.map((item, idx) => {
+      const id: string | number = item.icon.type?.render.displayName || idx,
+        Component = item.icon;
 
       return (
-        <Component
-          key={`social-${id}`}
-          sx={styles.socialIconSx}
-          fontSize="large"
-        />
+        <Link key={`social-${id}`} href={item.href} target="_blank">
+          <Component sx={styles.socialIconSx} fontSize="large" />
+        </Link>
       );
     });
   };

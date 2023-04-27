@@ -88,7 +88,7 @@ const styles: StylesObj = {
     animationFillMode: "forwards",
     position: "absolute",
     visibility: "hidden",
-    "& > svg:hover": {
+    "& svg:hover": {
       cursor: "pointer",
       transform: "scale(1.3)",
     },
@@ -101,7 +101,7 @@ const styles: StylesObj = {
     display: { xs: "flex", sm: "unset" },
     flexDirection: { xs: "column", sm: "unset" },
     right: { xs: "0.5rem", sm: "5rem" },
-    "& > svg:not(:last-child)": {
+    "& > :not(:last-child)": {
       marginBottom: { xs: "0.5rem", sm: "unset" },
       marginRight: { sm: "1rem" },
     },
