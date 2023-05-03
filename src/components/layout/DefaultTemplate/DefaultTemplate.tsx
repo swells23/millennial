@@ -25,10 +25,7 @@ export default function DefaultTemplate({
           content="Real Estate,Millennial,Realty,Investments,Stanley Jones"
         />
         <script type="application/ld+json">
-          {`{
-              "name":"Millennial Realty & Investments LLC",
-              "url":"https://www.millennialrealtyinvestments.com"
-          }`}
+          {`{"name":"Millennial Realty & Investments LLC","url":"https://www.millennialrealtyinvestments.com"}`}
         </script>
       </Head>
       <CssBaseline />
