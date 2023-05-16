@@ -85,11 +85,8 @@ export default function AgentList({
     },
     renderAgentCards = () =>
       data?.map((item: Agent) => {
-        console.log("TEST: ", item.picture)
         return (
           <Grid item key={item.name} xs={12} lg={6}>
-                        <Image src="https://drive.google.com/uc?export=view&id=1yU-oNNV9B_SgP2dwjyQqsImgRKoNCzxW" alt="stringtest3" height={100} width={100} />
-
             <Image src={item.picture} alt="test1" height={100} width={100} />
 
             <Card css={styles.card}>
