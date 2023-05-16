@@ -30,17 +30,17 @@ export default function AgentList({
   data: Array<Agent> | undefined;
 }) {
   const renderCardName = (name: string, title: string) => {
-    return (
-      <>
-        <Typography variant="h5" component="div">
-          {name ? name : <Skeleton css={styles.nameSkeleton} />}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {title ? title : <Skeleton css={styles.titleSkeleton} />}
-        </Typography>
-      </>
-    );
-  },
+      return (
+        <>
+          <Typography variant="h5" component="div">
+            {name ? name : <Skeleton css={styles.nameSkeleton} />}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {title ? title : <Skeleton css={styles.titleSkeleton} />}
+          </Typography>
+        </>
+      );
+    },
     renderContact = (
       name: string,
       contactType: string | undefined,
@@ -86,8 +86,6 @@ export default function AgentList({
       data?.map((item: Agent) => {
         return (
           <Grid item key={item.name} xs={12} lg={6}>
-            <Image src={item.picture} alt={item.name} fill />
-
             <Card css={styles.card}>
               <Grid container>
                 <Grid
