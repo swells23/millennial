@@ -82,11 +82,7 @@ export default function AgentList({
         </CardActions>
       );
     },
-    renderAgentCards = () => {
-      const imgLoader = ({ src }: { src: string }) => {
-        return src;
-      };
-
+    renderAgentCards = () =>
       data?.map((item: Agent) => {
         return (
           <Grid item key={item.name} xs={12} lg={6}>
@@ -99,12 +95,7 @@ export default function AgentList({
                   xs={5}
                   sm={4}
                 >
-                  <Image
-                    loader={imgLoader}
-                    src={item.picture}
-                    alt={item.name}
-                    fill
-                  />
+                  <Image src={item.picture} alt={item.name} fill />
                 </Grid>
                 <Grid
                   item
@@ -132,7 +123,6 @@ export default function AgentList({
           </Grid>
         );
       });
-    };
 
   return (
     <Container css={styles.root} maxWidth="xl">
