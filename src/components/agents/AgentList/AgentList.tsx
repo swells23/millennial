@@ -12,7 +12,6 @@ import { OverridableComponent } from "@mui/material/OverridableComponent";
 import Skeleton from "@mui/material/Skeleton";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
 import React from "react";
 import styles from "./AgentList.styles";
 
@@ -31,17 +30,17 @@ export default function AgentList({
   data: Array<Agent> | undefined;
 }) {
   const renderCardName = (name: string, title: string) => {
-    return (
-      <>
-        <Typography variant="h5" component="div">
-          {name ? name : <Skeleton css={styles.nameSkeleton} />}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {title ? title : <Skeleton css={styles.titleSkeleton} />}
-        </Typography>
-      </>
-    );
-  },
+      return (
+        <>
+          <Typography variant="h5" component="div">
+            {name ? name : <Skeleton css={styles.nameSkeleton} />}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {title ? title : <Skeleton css={styles.titleSkeleton} />}
+          </Typography>
+        </>
+      );
+    },
     renderContact = (
       name: string,
       contactType: string | undefined,
@@ -87,11 +86,7 @@ export default function AgentList({
       data?.map((item: Agent) => {
         return (
           <Grid item key={item.name} xs={12} lg={6}>
-            <Image src={item.picture} alt="test1" height={100} width={100} />
-
             <Card css={styles.card}>
-              <Image src={item.picture} alt="test2" height={200} width={200} />
-
               <Grid container>
                 <Grid item sx={styles.cardImageWrapperSx} xs={5} sm={4}>
                   <CardMedia
