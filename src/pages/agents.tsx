@@ -7,7 +7,7 @@ interface AgentData {
   agentList: JSON;
 }
 
-interface StaticProps {
+interface ServerSideProps {
   props: AgentData | undefined;
 }
 
@@ -32,7 +32,7 @@ function Agents({ agentList }: { agentList: Array<Agent> | undefined }) {
   );
 }
 
-export async function getStaticProps(): Promise<StaticProps> {
+export async function getServerSideProps(): Promise<ServerSideProps> {
   const agentList: AgentData | undefined = await GetAgents();
 
   return { props: agentList };

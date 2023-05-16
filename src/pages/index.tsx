@@ -13,7 +13,7 @@ interface ImageData {
   carouselImageList: JSON;
 }
 
-interface StaticProps {
+interface ServerSideProps {
   props: ImageData | undefined;
 }
 
@@ -42,7 +42,7 @@ function HomePage({ carouselImageList }: { carouselImageList: ImageList }) {
   );
 }
 
-export async function getStaticProps(): Promise<StaticProps> {
+export async function getServerSideProps(): Promise<ServerSideProps> {
   const carouselImageList: ImageData | undefined = await GetCarouselImages();
 
   return { props: carouselImageList };
