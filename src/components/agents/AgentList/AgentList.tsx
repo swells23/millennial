@@ -5,13 +5,13 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import Skeleton from "@mui/material/Skeleton";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
 import Typography from "@mui/material/Typography";
+import Image from "next/image";
 import React from "react";
 import styles from "./AgentList.styles";
 
@@ -88,13 +88,14 @@ export default function AgentList({
           <Grid item key={item.name} xs={12} lg={6}>
             <Card css={styles.card}>
               <Grid container>
-                <Grid item sx={styles.cardImageWrapperSx} xs={5} sm={4}>
-                  <CardMedia
-                    css={styles.cardImage}
-                    sx={styles.cardImageSx}
-                    image={item.picture}
-                    title={item.name}
-                  />
+                <Grid
+                  item
+                  css={styles.cardImageWrapper}
+                  sx={styles.cardImageWrapperSx}
+                  xs={5}
+                  sm={4}
+                >
+                  <Image src={item.picture} alt={item.name} fill />
                 </Grid>
                 <Grid
                   item
