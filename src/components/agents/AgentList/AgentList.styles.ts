@@ -10,20 +10,17 @@ const styles: StylesObj = {
   card: {
     backgroundColor: "#eee",
   },
+  cardImageWrapper: {
+    position: "relative",
+  },
   cardImageWrapperSx: {
-    maxWidth: {
-      xs: "7rem",
-      sm: "12.5rem",
-    },
-  },
-  cardImage: {
-    backgroundSize: "100% 100%",
-    borderRadius: ".25rem",
-  },
-  cardImageSx: {
     height: {
       xs: "7rem",
       sm: "15rem",
+    },
+    maxWidth: {
+      xs: "7rem",
+      sm: "12.5rem",
     },
   },
   cardNameSx: {

@@ -55,7 +55,13 @@ export default function Hero() {
   return (
     <Grid id="home" css={styles.root} sx={styles.rootSx}>
       <Grid css={styles.heroImg} sx={styles.heroImgSx}>
-        <Image id="hero-img" src={heroImg} alt="" fill priority />
+        <Image
+          id="hero-img"
+          src={heroImg}
+          alt="home background"
+          fill
+          priority
+        />
         <Image id="mobile-hero-img" src={mobileHeroImg} alt="" fill priority />
       </Grid>
       <Container css={styles.heroBand} maxWidth="md">
