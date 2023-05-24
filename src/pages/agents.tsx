@@ -20,7 +20,7 @@ interface Agent {
   linkedin?: string;
 }
 
-function Agents({ agentList }: { agentList: Array<Agent> | undefined }) {
+function AgentsPage({ agentList }: { agentList: Array<Agent> | undefined }) {
   const title = "Agents",
     metaDesc =
       "Our exceptional team of brokers work hard to provide world-class services to our clients.";
@@ -38,4 +38,4 @@ export async function getServerSideProps(): Promise<ServerSideProps> {
   return { props: agentList };
 }
 
-export default Agents;
+export default AgentsPage;
