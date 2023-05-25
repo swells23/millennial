@@ -11,7 +11,6 @@ import "swiper/css/navigation";
 import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
 import styles from "./MediaCarousel.styles";
 
-
 interface ImageListItem {
   id: string;
   [key: string]: unknown;
@@ -24,8 +23,8 @@ interface ImageList {
 
 export default function MediaCarousel({ imageList }: { imageList: ImageList }) {
   const imgLoader = ({ src }: { src: string }) => {
-    return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
-  },
+      return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
+    },
     renderImgList = (): Array<ReactElement> => {
       return imageList?.files.map((item: ImageListItem, idx: number) => {
         return (

@@ -43,7 +43,9 @@ function HomePage({ carouselImageList }: { carouselImageList: ImageList }) {
 }
 
 export async function getServerSideProps(): Promise<ServerSideProps> {
-  const carouselImageList: ImageData | undefined = await GetCarouselImages(process.env.MILLENNIAL_CAROUSEL_IMAGES_ID);
+  const carouselImageList: ImageData | undefined = await GetCarouselImages(
+    process.env.MILLENNIAL_CAROUSEL_IMAGES_ID
+  );
 
   return { props: carouselImageList };
 }
