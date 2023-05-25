@@ -26,8 +26,8 @@ export const navItems = [
     route: "/agents",
   },
   {
-    id: "contact",
-    title: "Contact",
-    route: "/#contact",
+    id: "listings",
+    title: "Listings",
+    route: "/listings",
   },
 ];
