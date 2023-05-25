@@ -3,6 +3,12 @@ interface StylesObj {
 }
 
 const styles: StylesObj = {
+    root: {
+        margin: "4rem 2rem"
+    },
+    heading: {
+        marginBottom: "2rem"
+    },
     modalSx: {
         '& .swiper': {
             height: {
@@ -44,6 +50,9 @@ const styles: StylesObj = {
         objectFit: "contain",
         position: "unset !important",
     },
+    tableControlsWrapper: {
+        flexShrink: 0
+    }
 }
 
 export default styles;
