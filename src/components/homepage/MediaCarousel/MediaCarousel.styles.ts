@@ -8,23 +8,16 @@ const styles: StylesObj = {
     color: "#fff",
     paddingTop: "2rem",
     paddingBottom: "5rem",
-    "& .carousel-root": {
-      "& > .carousel-slider": {
-        overflow: "unset",
-        "& > .control-dots": {
-          transform: "translateY(3.5rem)",
-        },
-      },
-    },
   },
   headline: {
     alignItems: "center",
     display: "flex",
   },
   carousel: {
-    "& .slider-wrapper": {
-      borderRadius: ".25rem",
-    },
+    backgroundColor: "lightgrey",
+    borderRadius: ".25rem",
+    height: "100%",
+    width: "100%",
   },
   image: {
     aspectRatio: "16/9",

@@ -4,10 +4,13 @@ import Grid from "@mui/material/Unstable_Grid2"; // Experimental Grid
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import React, { ReactElement } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Autoplay, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
 import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
 import styles from "./MediaCarousel.styles";
+
 
 interface ImageListItem {
   id: string;
@@ -21,19 +24,20 @@ interface ImageList {
 
 export default function MediaCarousel({ imageList }: { imageList: ImageList }) {
   const imgLoader = ({ src }: { src: string }) => {
-      return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
-    },
+    return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
+  },
     renderImgList = (): Array<ReactElement> => {
       return imageList?.files.map((item: ImageListItem, idx: number) => {
         return (
-          <Image
-            css={styles.image}
-            key={`sale-${idx + 1}`}
-            loader={imgLoader}
-            src={item.id}
-            alt={`sale ${idx + 1}`}
-            fill
-          />
+          <SwiperSlide key={`sale-${idx + 1}`}>
+            <Image
+              css={styles.image}
+              loader={imgLoader}
+              src={item.id}
+              alt={`sale ${idx + 1}`}
+              fill
+            />
+          </SwiperSlide>
         );
       });
     };
@@ -56,13 +60,20 @@ export default function MediaCarousel({ imageList }: { imageList: ImageList }) {
             </Typography>
           </Grid>
           <Grid md={4} mdOffset={2}>
-            <Carousel
+            <Swiper
               css={styles.carousel}
-              showStatus={false}
-              showThumbs={false}
+              navigation={true}
+              modules={[Autoplay, Navigation]}
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
             >
               {renderImgList()}
-            </Carousel>
+            </Swiper>
           </Grid>
         </Grid>
       </Container>

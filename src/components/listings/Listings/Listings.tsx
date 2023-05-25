@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import Backdrop from "@mui/material/Backdrop";
 import Button from "@mui/material/Button";
+import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,11 +12,14 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
 import React, { ReactElement, useState } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import styles from "./Listings.styles";
+import { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
 import GetCarouselImages from "../../../pages/api/GetCarouselImages";
+import styles from "./Listings.styles";
 
 interface ListingDataItem {
     id: string;
@@ -51,14 +54,11 @@ export default function Listings({
 }) {
     const [imageList, setImageList] = useState({});
     const [open, setOpen] = useState(false),
-        handleClose = () => {
-            setOpen(false);
-        },
+        handleClose = () => setOpen(false),
         handleOpen = async (folderId: string | undefined) => {
-
             if (folderId) {
                 const images = await GetCarouselImages(folderId);
-                if (images) {            
+                if (images) {
                     setOpen(true);
                     setImageList(images);
                 }
@@ -76,14 +76,16 @@ export default function Listings({
             console.log("IMAGELIST: ", imageList?.carouselImageList?.files)
             return imageList?.carouselImageList?.files?.map((item: ImageListItem, idx: number) => {
                 return (
-                    <Image
-                        css={styles.image}
-                        key={`listing-${idx + 1}`}
-                        loader={imgLoader}
-                        src={item.id}
-                        alt={`listing ${idx + 1}`}
-                        fill
-                    />
+                    <SwiperSlide key={`listing-${idx + 1}`}>
+                        <Image
+                            css={styles.image}
+                            loader={imgLoader}
+                            src={item.id}
+                            alt={`listing ${idx + 1}`}
+                            priority={idx === 0}
+                            fill
+                        />
+                    </SwiperSlide>
                 );
             });
         };
@@ -114,19 +116,21 @@ export default function Listings({
                                     <Button onClick={() => handleOpen(row?.folderId)}>
                                         View
                                     </Button>
-                                    <Backdrop
-                                        // sx={{ color: '#fff', zIndex: (theme) => 10000 }}
-                                        open={open}
-                                        onClick={handleClose}
-                                    >
-                                        <Carousel
+                                    <Modal sx={styles.modalSx} open={open} onClose={handleClose}>
+                                        <Swiper
                                             css={styles.carousel}
-                                            showStatus={false}
-                                            showThumbs={false}
+                                            navigation={true}
+                                            modules={[Navigation, Pagination]}
+                                            spaceBetween={30}
+                                            centeredSlides={true}
+                                            lazyPreloadPrevNext={2}
+                                            pagination={{
+                                                clickable: true
+                                            }}
                                         >
                                             {renderImgList()}
-                                        </Carousel>
-                                    </Backdrop>
+                                        </Swiper>
+                                    </Modal>
                                 </TableCell>
                             </TableRow>
                         ))}
