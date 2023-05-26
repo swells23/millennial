@@ -7,7 +7,7 @@ const styles: StylesObj = {
     backgroundColor: "#000",
     color: "#fff",
     paddingTop: "2rem",
-    paddingBottom: "5rem",
+    paddingBottom: "2rem",
   },
   headline: {
     alignItems: "center",

@@ -21,13 +21,13 @@ export const navItems = [
     route: "/#services",
   },
   {
-    id: "agents",
-    title: "Agents",
-    route: "/agents",
-  },
-  {
     id: "listings",
     title: "Listings",
     route: "/listings",
+  },
+  {
+    id: "agents",
+    title: "Agents",
+    route: "/agents",
   },
 ];
