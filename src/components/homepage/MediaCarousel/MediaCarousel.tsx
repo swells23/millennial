@@ -71,6 +71,7 @@ export default function MediaCarousel({
                 modules={[Autoplay, Navigation]}
                 spaceBetween={30}
                 centeredSlides={true}
+                lazyPreloadPrevNext={1}
                 autoplay={{
                   delay: 3000,
                   disableOnInteraction: false,
