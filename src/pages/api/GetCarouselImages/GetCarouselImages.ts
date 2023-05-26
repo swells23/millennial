@@ -10,7 +10,7 @@ export default async function GetCarouselImages(
   try {
     const res: Response = await fetch(
         new URL(
-          `${GOOGLE_DRIVE_API}/files?q='${folderId}'+in+parents&orderBy=name&key=${"AIzaSyCB1cshJM_hiarWyfhWUB9OP8W2HKn4Gjs"}`
+          `${GOOGLE_DRIVE_API}/files?q='${folderId}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
         )
       ),
       carouselImageList: JSON = await res.json();
