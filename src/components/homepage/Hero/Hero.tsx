@@ -10,7 +10,7 @@ import { SvgIconTypeMap } from "@mui/material/SvgIcon/SvgIcon";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
-import React, { ReactNode } from "react";
+import React from "react";
 import heroImg from "../../../assets/hero.jpg";
 import mobileHeroImg from "../../../assets/mobile-hero.jpg";
 import styles from "./Hero.styles";
@@ -24,7 +24,7 @@ interface Icon {
 }
 
 export default function Hero() {
-  const renderSocials = (): Array<ReactNode> => {
+  const renderSocials = (): Array<React.ReactNode> => {
     const components: Array<Icon> = [
       {
         icon: Facebook,

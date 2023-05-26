@@ -1,6 +1,6 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
-import React, { ReactNode } from "react";
+import React from "react";
 import { GlobalFooter, GlobalNav, Seo } from "../../pattern";
 
 export default function DefaultTemplate({
@@ -8,7 +8,7 @@ export default function DefaultTemplate({
   title,
   metaDesc,
 }: {
-  children?: ReactNode;
+  children?: React.ReactNode;
   title?: string;
   metaDesc?: string;
 }) {

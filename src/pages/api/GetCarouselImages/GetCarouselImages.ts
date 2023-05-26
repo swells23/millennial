@@ -1,7 +1,13 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
 
+interface ImageProps {
+  id: string;
+  [key: string]: unknown;
+}
+
 interface ImageData {
-  carouselImageList: JSON;
+  files: Array<ImageProps>;
+  [key: string]: unknown;
 }
 
 export default async function GetCarouselImages(
@@ -13,11 +19,9 @@ export default async function GetCarouselImages(
           `${GOOGLE_DRIVE_API}/files?q='${folderId}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
         )
       ),
-      carouselImageList: JSON = await res.json();
+      data = await res.json();
 
-    return {
-      carouselImageList,
-    };
+    return data;
   } catch (err) {
     console.error(
       `Error: Unable to retreive data from GetCarouselImages API. ${err}`

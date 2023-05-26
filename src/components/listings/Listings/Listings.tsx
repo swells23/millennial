@@ -19,7 +19,7 @@ import TableRow from "@mui/material/TableRow";
 import Typography from "@mui/material/Typography";
 
 import Image from "next/image";
-import React, { ReactElement, useState } from "react";
+import React from "react";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -45,16 +45,6 @@ interface Listing {
   folderId: string;
 }
 
-interface ImageListItem {
-  id: string;
-  [key: string]: unknown;
-}
-
-interface ImageList {
-  files: Array<ImageListItem>;
-  [key: string]: unknown;
-}
-
 interface TablePaginationActionsProps {
   count: number;
   page: number;
@@ -65,22 +55,30 @@ interface TablePaginationActionsProps {
   ) => void;
 }
 
+interface ImageProps {
+  id: string;
+  [key: string]: unknown;
+}
+
 export default function Listings({
   listingData,
 }: {
   listingData: ListingData;
 }) {
   const columns = ["Address", "Photos"];
-  const [imageList, setImageList] = useState({});
-  const [open, setOpen] = useState(false);
+  const [imageData, setImageData] = React.useState({
+    files: [{ id: "" }],
+  });
+  const [open, setOpen] = React.useState(false);
 
   const handleClose = () => setOpen(false);
   const handleOpen = async (folderId: string | undefined) => {
     if (folderId) {
       const images = await GetCarouselImages(folderId);
+
       if (images) {
         setOpen(true);
-        setImageList(images);
+        setImageData(images);
       }
     }
   };
@@ -109,10 +107,7 @@ export default function Listings({
         ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
         : rows
     ).map((row) => (
-      <TableRow
-        key={row?.address}
-        css={{ "&:last-child td, &:last-child th": { border: 0 } }}
-      >
+      <TableRow key={row?.address} css={styles.tableRow} hover>
         <TableCell component="th" scope="row">
           <Typography>{row?.address}</Typography>
         </TableCell>
@@ -145,23 +140,21 @@ export default function Listings({
   };
 
   const renderImgList = () => {
-    // console.log("IMAGELIST: ", imageList?.carouselImageList?.files)
-    return imageList?.carouselImageList?.files?.map(
-      (item: ImageListItem, idx: number) => {
-        return (
-          <SwiperSlide key={`listing-${idx + 1}`}>
-            <Image
-              css={styles.image}
-              loader={imgLoader}
-              src={item.id}
-              alt={`listing ${idx + 1}`}
-              priority={idx === 0}
-              fill
-            />
-          </SwiperSlide>
-        );
-      }
-    );
+    console.log(imageData);
+    return imageData?.files?.map((item: ImageProps, idx: number) => {
+      return (
+        <SwiperSlide key={`listing-${idx + 1}`}>
+          <Image
+            css={styles.image}
+            loader={imgLoader}
+            src={item.id}
+            alt={`listing ${idx + 1}`}
+            priority={idx === 0}
+            fill
+          />
+        </SwiperSlide>
+      );
+    });
   };
 
   const [page, setPage] = React.useState(0);
@@ -253,7 +246,7 @@ export default function Listings({
         </Typography>
       </div>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 320 }} aria-label="listings table">
+        <Table css={{ minWidth: 320 }} aria-label="listings table">
           <TableHead>
             <TableRow>{renderColumns()}</TableRow>
           </TableHead>

@@ -53,6 +53,11 @@ const styles: StylesObj = {
     objectFit: "contain",
     position: "unset !important",
   },
+  tableRow: {
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  },
   tableControlsWrapper: {
     flexShrink: 0,
   },

@@ -18,25 +18,25 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { ReactElement, useState } from "react";
+import React from "react";
 import { navItems } from "../../../data/templateMeta";
 import logo from "../../../assets/logo.png";
 import styles from "./GlobalNav.styles";
 
 interface MenuItems {
-  desktop: Array<ReactElement>;
-  mobile: Array<ReactElement>;
+  desktop: Array<React.ReactElement>;
+  mobile: Array<React.ReactElement>;
 }
 
 export default function GlobalNav() {
-  const [mobileOpen, setMobileOpen] = useState(false),
+  const [mobileOpen, setMobileOpen] = React.useState(false),
     handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
     },
     getMenuItems = (): MenuItems => {
       const pathname = useRouter().asPath,
-        desktopComponents: Array<ReactElement> = [],
-        mobileComponents: Array<ReactElement> = [];
+        desktopComponents: Array<React.ReactElement> = [],
+        mobileComponents: Array<React.ReactElement> = [];
 
       navItems.forEach((item) => {
         const isActive = item.route === pathname;

@@ -9,25 +9,23 @@ import {
 import DefaultTemplate from "../components/layout/DefaultTemplate";
 import GetCarouselImages from "./api/GetCarouselImages";
 
-interface ImageData {
-  carouselImageList: JSON;
-}
-
-interface ServerSideProps {
-  props: ImageData | undefined;
-}
-
-interface ImageListItem {
+interface ImageProps {
   id: string;
   [key: string]: unknown;
 }
 
-interface ImageList {
-  files: Array<ImageListItem>;
+interface ImageData {
+  files: Array<ImageProps>;
   [key: string]: unknown;
 }
 
-function HomePage({ carouselImageList }: { carouselImageList: ImageList }) {
+interface ServerSideProps {
+  props: {
+    imageData: ImageData | undefined;
+  };
+}
+
+function HomePage({ imageData }: { imageData: ImageData }) {
   const metaDesc =
     "Buying a home can be challenging, so let us make it simple. Millennial Realty & Investments strives to provide you with world-class servicing for your next real estate venture.";
 
@@ -35,7 +33,7 @@ function HomePage({ carouselImageList }: { carouselImageList: ImageList }) {
     <DefaultTemplate metaDesc={metaDesc}>
       <Hero />
       <StatisticsBand />
-      <MediaCarousel imageList={carouselImageList} />
+      <MediaCarousel imageData={imageData} />
       <ServicesBand />
       <ContactBand />
     </DefaultTemplate>
@@ -43,11 +41,11 @@ function HomePage({ carouselImageList }: { carouselImageList: ImageList }) {
 }
 
 export async function getServerSideProps(): Promise<ServerSideProps> {
-  const carouselImageList: ImageData | undefined = await GetCarouselImages(
+  const imageData = await GetCarouselImages(
     process.env.MILLENNIAL_CAROUSEL_IMAGES_ID
   );
 
-  return { props: carouselImageList };
+  return { props: { imageData } };
 }
 
 export default HomePage;
