@@ -2,20 +2,22 @@ import React from "react";
 import DefaultTemplate from "../components/layout/DefaultTemplate";
 import Listings from "../components/listings/Listings";
 import GetListings from "./api/GetListings";
+import GetBatchImages from "./api/GetBatchImages";
 
-interface ListingDataItem {
+interface ListingFolderProps {
   id: string;
   name: string;
   [key: string]: unknown;
 }
 
 interface ListingData {
-  files: Array<ListingDataItem>;
+  address: string;
+  files: Array<ListingFolderProps>;
   [key: string]: unknown;
 }
 
-function ListingsPage({ listingData }: { listingData: ListingData }) {
-  const metaDesc = ""; // REMINDER
+function ListingsPage({ listingData }: { listingData: Array<ListingData> }) {
+  const metaDesc = "Browse through pictures of recently listed properties.";
 
   return (
     <DefaultTemplate metaDesc={metaDesc}>
@@ -25,9 +27,15 @@ function ListingsPage({ listingData }: { listingData: ListingData }) {
 }
 
 export async function getServerSideProps() {
-  const listingData = await GetListings();
+  const listings = await GetListings();
 
-  return { props: listingData };
+  let listingData;
+
+  if (listings?.files) {
+    listingData = await GetBatchImages(listings);
+  }
+
+  return { props: { listingData } };
 }
 
 export default ListingsPage;

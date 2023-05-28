@@ -26,23 +26,23 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
-import GetCarouselImages from "../../../pages/api/GetCarouselImages";
 import styles from "./Listings.styles";
 
-interface ListingDataItem {
+interface ListingFolderProps {
   id: string;
   name: string;
   [key: string]: unknown;
 }
 
 interface ListingData {
-  files: Array<ListingDataItem>;
+  address: string;
+  files: Array<ListingFolderProps>;
   [key: string]: unknown;
 }
 
 interface Listing {
   address: string;
-  folderId: string;
+  images: Array<ListingFolderProps>;
 }
 
 interface TablePaginationActionsProps {
@@ -63,29 +63,21 @@ interface ImageProps {
 export default function Listings({
   listingData,
 }: {
-  listingData: ListingData;
+  listingData: Array<ListingData>;
 }) {
   const columns = ["Address", "Photos"];
-  const [imageData, setImageData] = React.useState({
-    files: [{ id: "" }],
-  });
+  const [imageData, setImageData] = React.useState([{ id: "" }]);
   const [open, setOpen] = React.useState(false);
 
   const handleClose = () => setOpen(false);
-  const handleOpen = async (folderId: string | undefined) => {
-    if (folderId) {
-      const images = await GetCarouselImages(folderId);
-
-      if (images) {
-        setOpen(true);
-        setImageData(images);
-      }
-    }
+  const handleOpen = (images: Array<ListingFolderProps>) => {
+    setOpen(true);
+    setImageData(images);
   };
 
   const rows: Array<Listing | undefined> = listingData
-    ? listingData.files.map((item: ListingDataItem) => {
-        return { address: item.name, folderId: item.id };
+    ? listingData.map((item: ListingData) => {
+        return { address: item.address, images: item.files };
       })
     : [];
 
@@ -104,15 +96,18 @@ export default function Listings({
   const renderRows = () => {
     return (
       rowsPerPage > 0
-        ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        : rows
-    ).map((row) => (
-      <TableRow key={row?.address} css={styles.tableRow} hover>
+        ? listingData.slice(
+            page * rowsPerPage,
+            page * rowsPerPage + rowsPerPage
+          )
+        : listingData
+    ).map((item) => (
+      <TableRow key={item.address} css={styles.tableRow} hover>
         <TableCell component="th" scope="row">
-          <Typography>{row?.address}</Typography>
+          <Typography>{item.address}</Typography>
         </TableCell>
         <TableCell>
-          <Button onClick={() => handleOpen(row?.folderId)}>
+          <Button onClick={() => handleOpen(item.files)}>
             <Typography>View</Typography>
           </Button>
           <Modal sx={styles.modalSx} open={open} onClose={handleClose}>
@@ -140,8 +135,7 @@ export default function Listings({
   };
 
   const renderImgList = () => {
-    console.log(imageData);
-    return imageData?.files?.map((item: ImageProps, idx: number) => {
+    return imageData.map((item: ImageProps, idx: number) => {
       return (
         <SwiperSlide key={`listing-${idx + 1}`}>
           <Image
