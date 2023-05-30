@@ -4,8 +4,15 @@ interface StylesObj {
 
 const styles: StylesObj = {
   root: {
+    overflow: "hidden",
     paddingTop: "5rem",
     paddingBottom: "5rem",
+    position: "relative",
+  },
+  backgroundImg: {
+    minWidth: "1920px",
+    transform: "scaleX(-1)",
+    zIndex: -1,
   },
   image: {
     borderRadius: ".25rem",
