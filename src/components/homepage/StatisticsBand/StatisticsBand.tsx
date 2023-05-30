@@ -12,7 +12,12 @@ export default function StatisticsBand() {
   return (
     <div id="about" css={styles.root}>
       <Container maxWidth="xl">
-        <Image css={styles.backgroundImg} src={backgroundImg} alt="background" fill />
+        <Image
+          css={styles.backgroundImg}
+          src={backgroundImg}
+          alt="background"
+          fill
+        />
         <Grid container spacing={8}>
           <Grid item md={6}>
             <Image css={styles.image} src={livingRoomImg} alt="living room" />
@@ -25,8 +30,9 @@ export default function StatisticsBand() {
                 also for those who are looking for a reliable agent.
               </Typography>
               <Typography>
-                You can use a few enticing words and flaunt your capabilities that
-                would relieve clients and encourage them to hire you right away.
+                You can use a few enticing words and flaunt your capabilities
+                that would relieve clients and encourage them to hire you right
+                away.
               </Typography>
             </div>
             <Grid container>
