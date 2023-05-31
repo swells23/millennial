@@ -24,15 +24,20 @@ export default function StatisticsBand() {
           </Grid>
           <Grid item md={6}>
             <div css={styles.infoBlock}>
-              <Typography gutterBottom>
-                A descriptive paragraph that tells clients how good you are and
-                proves the best choice that they&#39;ve made. This paragraph is
-                also for those who are looking for a reliable agent.
+              <Typography>
+                Millennial Realty & Investments is a North Carolina based
+                company that has served clients for over 6 years. Our
+                experienced brokers have deep understanding of the real estate
+                market and possess the skills to help you secure your dream
+                home.
               </Typography>
               <Typography>
-                You can use a few enticing words and flaunt your capabilities
-                that would relieve clients and encourage them to hire you right
-                away.
+                Above all, we are committed to providing exceptional customer
+                service, ensuring that our clients have a positive and
+                stress-free experience throughout the buying or selling process.
+                A successful real estate agent is not just a salesperson but a
+                trusted advisor, who helps clients make informed decisions that
+                align with their unique goals and needs.
               </Typography>
             </div>
             <Grid container>
@@ -43,7 +48,7 @@ export default function StatisticsBand() {
                   component="p"
                   color="primary"
                 >
-                  400+
+                  300+
                 </Typography>
               </Grid>
               <Grid item xs={6}>
@@ -53,7 +58,7 @@ export default function StatisticsBand() {
                   component="p"
                   color="primary"
                 >
-                  100+
+                  200+
                 </Typography>
               </Grid>
               <Grid item xs={6}>

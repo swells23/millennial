@@ -30,6 +30,29 @@ export default function SerivesBand() {
             <Grid container spacing={3}>
               <Grid item md={12}>
                 <Typography variant="h5" gutterBottom>
+                  Sales
+                </Typography>
+                <Typography>
+                  Whether you want to buy or sell a property, we can help you
+                  with both! We will negotiate offers in your favor and prepare
+                  you with everything you should know before making any
+                  decisions.
+                </Typography>
+              </Grid>
+              <Grid item md={12}>
+                <Typography variant="h5" gutterBottom>
+                  Education
+                </Typography>
+                <Typography>
+                  We are here to answer all of your questions, but also inform
+                  you of what you should and would want to know. We are honest
+                  and transparent because that&#39;s how it should be. We teach
+                  financial literacy which will allow you make informed
+                  decisions.
+                </Typography>
+              </Grid>
+              <Grid item md={12}>
+                <Typography variant="h5" gutterBottom>
                   Property Management
                 </Typography>
                 <Typography>

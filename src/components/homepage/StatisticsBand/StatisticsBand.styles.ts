@@ -21,6 +21,9 @@ const styles: StylesObj = {
   },
   infoBlock: {
     marginBottom: "2rem",
+    "& > p": {
+      marginBottom: "1rem",
+    },
   },
   statNum: {
     fontWeight: 600,
