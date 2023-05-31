@@ -7,6 +7,9 @@ const styles: StylesObj = {
     paddingTop: "2rem",
     paddingBottom: "2rem",
   },
+  heading: {
+    marginBottom: "2rem",
+  },
   card: {
     backgroundColor: "#eee",
   },

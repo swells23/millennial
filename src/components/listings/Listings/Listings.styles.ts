@@ -3,11 +3,9 @@ interface StylesObj {
 }
 
 const styles: StylesObj = {
-  rootSx: {
-    margin: {
-      xs: "3rem 1rem",
-      md: "4rem 2rem",
-    },
+  root: {
+    paddingTop: "2rem",
+    paddingBottom: "2rem",
   },
   heading: {
     marginBottom: "2rem",

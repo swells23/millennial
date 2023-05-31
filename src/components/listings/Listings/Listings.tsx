@@ -5,8 +5,8 @@ import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -230,7 +230,7 @@ export default function Listings({
   };
 
   return (
-    <Box sx={styles.rootSx}>
+    <Container css={styles.root} maxWidth="xl">
       <div css={styles.heading}>
         <Typography variant="h3" component="h1" gutterBottom>
           Featured Listings
@@ -263,6 +263,6 @@ export default function Listings({
         onRowsPerPageChange={handleChangeRowsPerPage}
         ActionsComponent={TablePaginationActions}
       />
-    </Box>
+    </Container>
   );
 }

@@ -136,6 +136,14 @@ export default function AgentList({
 
   return (
     <Container css={styles.root} maxWidth="xl">
+      <div css={styles.heading}>
+        <Typography variant="h3" component="h1" gutterBottom>
+          Our Agents
+        </Typography>
+        <Typography variant="h6" component="p" color="secondary">
+          Get in touch with our team today!
+        </Typography>
+      </div>
       <Grid container spacing={4}>
         {renderAgentCards()}
       </Grid>
