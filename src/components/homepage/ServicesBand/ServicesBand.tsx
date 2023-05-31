@@ -1,4 +1,8 @@
 /** @jsxImportSource @emotion/react */
+import Sell from "@mui/icons-material/Sell";
+import Business from "@mui/icons-material/Business";
+import Construction from "@mui/icons-material/Construction";
+import School from "@mui/icons-material/School";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -29,7 +33,8 @@ export default function SerivesBand() {
           <Grid item md={6}>
             <Grid container spacing={3}>
               <Grid item md={12}>
-                <Typography variant="h5" gutterBottom>
+                <Typography css={styles.textIcon} variant="h5" gutterBottom>
+                  <Sell />
                   Sales
                 </Typography>
                 <Typography>
@@ -40,7 +45,8 @@ export default function SerivesBand() {
                 </Typography>
               </Grid>
               <Grid item md={12}>
-                <Typography variant="h5" gutterBottom>
+                <Typography css={styles.textIcon} variant="h5" gutterBottom>
+                  <School />
                   Education
                 </Typography>
                 <Typography>
@@ -52,7 +58,8 @@ export default function SerivesBand() {
                 </Typography>
               </Grid>
               <Grid item md={12}>
-                <Typography variant="h5" gutterBottom>
+                <Typography css={styles.textIcon} variant="h5" gutterBottom>
+                  <Business />
                   Property Management
                 </Typography>
                 <Typography>
@@ -63,7 +70,8 @@ export default function SerivesBand() {
                 </Typography>
               </Grid>
               <Grid item md={12}>
-                <Typography variant="h5" gutterBottom>
+                <Typography css={styles.textIcon} variant="h5" gutterBottom>
+                  <Construction />
                   Construction
                 </Typography>
                 <Typography>

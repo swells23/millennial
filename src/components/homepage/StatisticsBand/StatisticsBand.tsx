@@ -28,8 +28,8 @@ export default function StatisticsBand() {
                 Millennial Realty & Investments is a North Carolina based
                 company that has served clients for over 6 years. Our
                 experienced brokers have a deep understanding of the real estate
-                market and possess the skills necessary to help you secure your dream
-                home.
+                market and possess the skills necessary to help you secure your
+                dream home.
               </Typography>
               <Typography>
                 Above all, we are committed to providing exceptional customer
@@ -37,7 +37,8 @@ export default function StatisticsBand() {
                 stress-free experience throughout the buying or selling process.
                 A successful real estate agent is not just a salesperson, but a
                 trusted advisor who helps clients make informed decisions that
-                align with their unique goals and needs. Our agents are here for you.
+                align with their unique goals and needs. Our agents are here for
+                you.
               </Typography>
             </div>
             <Grid container>

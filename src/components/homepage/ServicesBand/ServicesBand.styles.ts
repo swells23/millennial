@@ -24,6 +24,13 @@ const styles: StylesObj = {
       cursor: "pointer",
     },
   },
+  textIcon: {
+    alignItems: "center",
+    display: "flex",
+    "& > svg": {
+      marginRight: "1rem",
+    },
+  },
 };
 
 export default styles;
