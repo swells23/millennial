@@ -10,31 +10,9 @@ const styles: StylesObj = {
   heading: {
     marginBottom: "2rem",
   },
-  modalSx: {
-    "& .swiper": {
-      height: {
-        xs: "440px",
-        md: "540px",
-        xl: "780px",
-      },
-      maxWidth: {
-        xs: "480px",
-        md: "640px",
-        xl: "1280px",
-      },
-      "& .swiper-wrapper": {
-        height: {
-          xs: "360px",
-          md: "480px",
-          xl: "720px",
-        },
-      },
-    },
-  },
   carousel: {
     borderRadius: ".25rem",
     margin: "auto",
-    width: "90%",
     "& .swiper-pagination-bullet-active": {
       backgroundColor: "#fff",
     },
@@ -58,6 +36,51 @@ const styles: StylesObj = {
   },
   tableControlsWrapper: {
     flexShrink: 0,
+  },
+  swiperWrapper: {
+    margin: "auto",
+    position: "relative",
+    width: "90%",
+    "& .swiper": {
+      height: "100%",
+    },
+  },
+  swiperWrapperSx: {
+    height: {
+      xs: "440px",
+      md: "540px",
+      xl: "780px",
+    },
+    maxWidth: {
+      xs: "480px",
+      md: "640px",
+      xl: "1280px",
+    },
+    "& .swiper-wrapper": {
+      height: {
+        xs: "360px",
+        md: "480px",
+        xl: "720px",
+      },
+    },
+  },
+  closeIcon: {
+    color: "#fff",
+    cursor: "pointer",
+    position: "absolute",
+    zIndex: 5,
+  },
+  closeIconSx: {
+    top: {
+      xs: "-3rem",
+      md: 0,
+    },
+    right: {
+      xs: 0,
+      sm: "-3rem",
+      md: "-5rem",
+      xl: 0,
+    },
   },
 };
 

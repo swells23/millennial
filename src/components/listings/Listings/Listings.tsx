@@ -1,12 +1,14 @@
 /** @jsxImportSource @emotion/react */
+import Close from "@mui/icons-material/Close";
 import FirstPageIcon from "@mui/icons-material/FirstPage";
-import IconButton from "@mui/material/IconButton";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import LastPageIcon from "@mui/icons-material/LastPage";
 
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -107,23 +109,36 @@ export default function Listings({
           <Typography>{item.address}</Typography>
         </TableCell>
         <TableCell>
-          <Button onClick={() => handleOpen(item.files)}>
+          <Button
+            aria-label="view images"
+            onClick={() => handleOpen(item.files)}
+          >
             <Typography>View</Typography>
           </Button>
-          <Modal sx={styles.modalSx} open={open} onClose={handleClose}>
-            <Swiper
-              css={styles.carousel}
-              navigation={true}
-              modules={[Navigation, Pagination]}
-              spaceBetween={30}
-              centeredSlides={true}
-              lazyPreloadPrevNext={2}
-              pagination={{
-                clickable: true,
-              }}
-            >
-              {renderImgList()}
-            </Swiper>
+          <Modal open={open} onClose={handleClose}>
+            <Box css={styles.swiperWrapper} sx={styles.swiperWrapperSx}>
+              <IconButton
+                css={styles.closeIcon}
+                sx={styles.closeIconSx}
+                aria-label="close images"
+                onClick={handleClose}
+              >
+                <Close />
+              </IconButton>
+              <Swiper
+                css={styles.carousel}
+                navigation={true}
+                modules={[Navigation, Pagination]}
+                spaceBetween={30}
+                centeredSlides={true}
+                lazyPreloadPrevNext={2}
+                pagination={{
+                  clickable: true,
+                }}
+              >
+                {renderImgList()}
+              </Swiper>
+            </Box>
           </Modal>
         </TableCell>
       </TableRow>
