@@ -2,7 +2,7 @@
 
 ## Greetings!
 
-This project is a real estate portfolio for a local business. The application connects with the Google Drive API to easily manage dynamic content. This support will allow the client to add, edit, or remove media assets, property listings, and agent contacts on their website through the comfort and simplicity of Google Drive.
+This project is a real estate portfolio for a local business. The application connects with the Google Drive API to easily manage dynamic content. This support will allow the business managers to add, edit, or remove media assets, property listings, and agent contacts on their website through the comfort and simplicity of Google Drive.
 
 ## Tools
 
