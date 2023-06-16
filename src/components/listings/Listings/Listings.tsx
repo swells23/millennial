@@ -30,21 +30,30 @@ import "swiper/css/pagination";
 import { GOOGLE_DRIVE_EXPORT } from "../../../data/templateMeta";
 import styles from "./Listings.styles";
 
-interface ListingFolderProps {
+interface ListingData {
+  drive: Array<DriveFile>;
+  addressList: Array<Address>;
+  images?: Array<ListingImages>;
+}
+
+interface DriveFile {
   id: string;
   name: string;
   [key: string]: unknown;
 }
 
-interface ListingData {
-  address: string;
-  files: Array<ListingFolderProps>;
-  [key: string]: unknown;
+interface Address {
+  query: string;
+  response: {
+    input: any;
+    results: any;
+  };
 }
 
-interface Listing {
+interface ListingImages {
+  files: Array<DriveFile>;
   address: string;
-  images: Array<ListingFolderProps>;
+  [key: string]: unknown;
 }
 
 interface TablePaginationActionsProps {
@@ -65,23 +74,19 @@ interface ImageProps {
 export default function Listings({
   listingData,
 }: {
-  listingData: Array<ListingData>;
+  listingData: ListingData;
 }) {
   const columns = ["Address", "Photos"];
   const [imageData, setImageData] = React.useState([{ id: "" }]);
   const [open, setOpen] = React.useState(false);
 
   const handleClose = () => setOpen(false);
-  const handleOpen = (images: Array<ListingFolderProps>) => {
-    setOpen(true);
-    setImageData(images);
+  const handleOpen = (images: Array<DriveFile> | undefined) => {
+    if (images) {
+      setOpen(true);
+      setImageData(images);
+    }
   };
-
-  const rows: Array<Listing | undefined> = listingData
-    ? listingData.map((item: ListingData) => {
-        return { address: item.address, images: item.files };
-      })
-    : [];
 
   const renderColumns = () => {
     return columns.map((item) => {
@@ -98,51 +103,55 @@ export default function Listings({
   const renderRows = () => {
     return (
       rowsPerPage > 0
-        ? listingData.slice(
+        ? listingData.addressList.slice(
             page * rowsPerPage,
             page * rowsPerPage + rowsPerPage
           )
-        : listingData
-    ).map((item) => (
-      <TableRow key={item.address} css={styles.tableRow} hover>
-        <TableCell component="th" scope="row">
-          <Typography>{item.address}</Typography>
-        </TableCell>
-        <TableCell>
-          <Button
-            aria-label="view images"
-            onClick={() => handleOpen(item.files)}
-          >
-            <Typography>View</Typography>
-          </Button>
-          <Modal open={open} onClose={handleClose}>
-            <Box css={styles.swiperWrapper} sx={styles.swiperWrapperSx}>
-              <IconButton
-                css={styles.closeIcon}
-                sx={styles.closeIconSx}
-                aria-label="close images"
-                onClick={handleClose}
-              >
-                <Close />
-              </IconButton>
-              <Swiper
-                css={styles.carousel}
-                navigation={true}
-                modules={[Navigation, Pagination]}
-                spaceBetween={30}
-                centeredSlides={true}
-                lazyPreloadPrevNext={2}
-                pagination={{
-                  clickable: true,
-                }}
-              >
-                {renderImgList()}
-              </Swiper>
-            </Box>
-          </Modal>
-        </TableCell>
-      </TableRow>
-    ));
+        : listingData.addressList
+    ).map((item, idx) => {
+      const address = item.response.results[0].formatted_address;
+
+      return (
+        <TableRow key={address} css={styles.tableRow} hover>
+          <TableCell component="th" scope="row">
+            <Typography>{address}</Typography>
+          </TableCell>
+          <TableCell>
+            <Button
+              aria-label="view images"
+              onClick={() => handleOpen(listingData.images?.[idx].files)}
+            >
+              <Typography>View</Typography>
+            </Button>
+            <Modal open={open} onClose={handleClose}>
+              <Box css={styles.swiperWrapper} sx={styles.swiperWrapperSx}>
+                <IconButton
+                  css={styles.closeIcon}
+                  sx={styles.closeIconSx}
+                  aria-label="close images"
+                  onClick={handleClose}
+                >
+                  <Close />
+                </IconButton>
+                <Swiper
+                  css={styles.carousel}
+                  navigation={true}
+                  modules={[Navigation, Pagination]}
+                  spaceBetween={30}
+                  centeredSlides={true}
+                  lazyPreloadPrevNext={2}
+                  pagination={{
+                    clickable: true,
+                  }}
+                >
+                  {renderImgList()}
+                </Swiper>
+              </Box>
+            </Modal>
+          </TableCell>
+        </TableRow>
+      );
+    });
   };
 
   const imgLoader = ({ src }: { src: string }) => {
@@ -267,7 +276,7 @@ export default function Listings({
         page={page}
         rowsPerPage={rowsPerPage}
         rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-        count={rows.length}
+        count={listingData.addressList.length}
         SelectProps={{
           inputProps: {
             "aria-label": "rows per page",

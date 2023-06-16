@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.7",
     "@types/react": "^18.0.35",
+    "geocodio-library-node": "^1.5.0",
     "next": "^13.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
