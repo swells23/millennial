@@ -1,20 +1,13 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
 import GetBatchImages from "./GetBatchImages";
 
-interface ImageData {
-  carouselImageList: JSON;
-}
-
-interface MockData {
-  name: string;
-}
-
-const MOCK_DATA: MockData = { name: "mock name" };
+const MOCK_FOLDER_LIST = [{ id: '123456', name: 'mock name' }];
+const MOCK_DATA = { name: "mock name" };
 let fetchMock: jest.SpyInstance | undefined = undefined;
 
 describe("GetBatchImages API", () => {
   const url = new URL(
-    `${GOOGLE_DRIVE_API}/files?q='${process.env.MILLENNIAL_CAROUSEL_IMAGES_ID}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
+    `${GOOGLE_DRIVE_API}/files?q='${MOCK_FOLDER_LIST[0].id}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
   );
 
   describe("successful GET request to google drive api", () => {
@@ -33,12 +26,10 @@ describe("GetBatchImages API", () => {
     });
 
     it("returns carouselImageList prop", async () => {
-      const result: ImageData | undefined = await GetBatchImages();
+      const result = await GetBatchImages(MOCK_FOLDER_LIST);
 
       expect(fetchMock).toHaveBeenCalledWith(url);
-      expect(result).toEqual({
-        carouselImageList: MOCK_DATA,
-      });
+      expect(result).toEqual([MOCK_DATA]);
     });
   });
 
@@ -56,7 +47,7 @@ describe("GetBatchImages API", () => {
     it("returns undefined w/ console error", async () => {
       console.error = jest.fn() as jest.Mock;
 
-      const result: ImageData | undefined = await GetBatchImages();
+      const result = await GetBatchImages(MOCK_FOLDER_LIST);
 
       expect(fetchMock).toHaveBeenCalledWith(url);
       expect(result).toBe(undefined);

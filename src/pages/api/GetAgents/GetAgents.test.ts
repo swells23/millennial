@@ -1,15 +1,7 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
 import GetAgents from "./GetAgents";
 
-interface AgentData {
-  agentList: JSON;
-}
-
-interface MockData {
-  name: string;
-}
-
-const MOCK_DATA: MockData = { name: "mock name" };
+const MOCK_DATA = { name: "mock name" };
 let fetchMock: jest.SpyInstance | undefined = undefined;
 
 describe("GetAgents API", () => {
@@ -33,7 +25,7 @@ describe("GetAgents API", () => {
     });
 
     it("returns agentList prop", async () => {
-      const result: AgentData | undefined = await GetAgents();
+      const result = await GetAgents();
 
       expect(fetchMock).toHaveBeenCalledWith(url);
       expect(result).toEqual({
@@ -56,7 +48,7 @@ describe("GetAgents API", () => {
     it("returns undefined w/ console error", async () => {
       console.error = jest.fn() as jest.Mock;
 
-      const result: AgentData | undefined = await GetAgents();
+      const result = await GetAgents();
 
       expect(fetchMock).toHaveBeenCalledWith(url);
       expect(result).toBe(undefined);
