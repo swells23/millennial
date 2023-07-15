@@ -1,7 +1,7 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
 import GetCarouselImages from "./GetCarouselImages";
 
-const MOCK_FOLDER_ID = '123456';
+const MOCK_FOLDER_ID = "123456";
 const MOCK_DATA = { name: "mock name" };
 let fetchMock: jest.SpyInstance | undefined = undefined;
 

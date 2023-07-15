@@ -1,7 +1,7 @@
 import { GOOGLE_DRIVE_API } from "../../../data/templateMeta";
 import GetBatchImages from "./GetBatchImages";
 
-const MOCK_FOLDER_LIST = [{ id: '123456', name: 'mock name' }];
+const MOCK_FOLDER_LIST = [{ id: "123456", name: "mock name" }];
 const MOCK_DATA = { name: "mock name" };
 let fetchMock: jest.SpyInstance | undefined = undefined;
 

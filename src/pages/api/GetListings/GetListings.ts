@@ -45,11 +45,13 @@ export default async function GetListings(): Promise<ListingData | undefined> {
       return item.name;
     });
 
-    await geocoder
-      .geocode(addressList)
-      .then((res: { results: Array<unknown> }) => {
-        addressList = res.results;
-      });
+    if (addressList.length) {
+      await geocoder
+        .geocode(addressList)
+        .then((res: { results: Array<unknown> }) => {
+          addressList = res.results;
+        });
+    }
 
     return { drive: driveData, addressList };
   } catch (err) {
