@@ -3,12 +3,10 @@ import AgentList from "../components/agents/AgentList";
 import DefaultTemplate from "../components/layout/DefaultTemplate";
 import GetAgents from "./api/GetAgents";
 
-interface AgentData {
-  agentList: JSON;
-}
-
 interface ServerSideProps {
-  props: AgentData | undefined;
+  props: {
+    agentList: Array<Agent> | undefined;
+  }
 }
 
 interface Agent {
@@ -33,9 +31,9 @@ function AgentsPage({ agentList }: { agentList: Array<Agent> | undefined }) {
 }
 
 export async function getServerSideProps(): Promise<ServerSideProps> {
-  const agentList: AgentData | undefined = await GetAgents();
+  const agentList = await GetAgents();
 
-  return { props: agentList };
+  return { props: { agentList } };
 }
 
 export default AgentsPage;

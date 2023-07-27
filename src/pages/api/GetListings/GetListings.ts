@@ -39,6 +39,11 @@ export default async function GetListings(): Promise<ListingData | undefined> {
     );
 
     let driveData = await res.json();
+
+    if (!driveData) {
+      throw Error("DriveData is undefined.");
+    }
+
     driveData = driveData.files;
 
     let addressList = driveData.map((item: DriveFile) => {

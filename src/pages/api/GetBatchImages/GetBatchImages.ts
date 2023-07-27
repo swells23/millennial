@@ -16,7 +16,7 @@ export default async function GetBatchImages(
   folderList: Array<DriveFile>
 ): Promise<Array<ListingImages> | undefined> {
   try {
-    const listingImages = await Promise.all(
+    const listingImages: Array<ListingImages> = await Promise.all(
       folderList.map(async (folder) => {
         const res: Response = await fetch(
           new URL(
@@ -24,9 +24,10 @@ export default async function GetBatchImages(
           )
         );
         const data = await res.json();
+
         data.address = folder.name;
 
-        return data;
+        return data as ListingImages;
       })
     );
 
