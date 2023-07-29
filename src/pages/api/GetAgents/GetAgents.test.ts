@@ -28,9 +28,7 @@ describe("GetAgents API", () => {
       const result = await GetAgents();
 
       expect(fetchMock).toHaveBeenCalledWith(url);
-      expect(result).toEqual({
-        agentList: MOCK_DATA,
-      });
+      expect(result).toEqual(MOCK_DATA);
     });
   });
 
