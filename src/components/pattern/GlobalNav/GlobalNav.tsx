@@ -17,7 +17,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { navItems } from "../../../data/templateMeta";
 import logo from "../../../assets/logo.png";
@@ -34,7 +34,7 @@ export default function GlobalNav() {
       setMobileOpen((prevState) => !prevState);
     },
     getMenuItems = (): MenuItems => {
-      const pathname = useRouter().asPath,
+      const pathname = usePathname(),
         desktopComponents: Array<React.ReactElement> = [],
         mobileComponents: Array<React.ReactElement> = [];
 

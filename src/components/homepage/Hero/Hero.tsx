@@ -53,7 +53,7 @@ export default function Hero() {
   };
 
   return (
-    <Grid id="home" css={styles.root} sx={styles.rootSx}>
+    <Grid id="home" css={styles.root}>
       <Grid css={styles.heroImg} sx={styles.heroImgSx}>
         <Image
           id="hero-img"

@@ -1,5 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import Grid from "@mui/material/Grid";
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -33,15 +32,8 @@ class MyDocument extends Document {
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
-        },
-      },
-      bodySx: {
-        "#__next": {
           "& > div[id]": {
-            scrollMarginTop: {
-              xs: "3.5rem",
-              sm: "4rem",
-            },
+            scrollMarginTop: "3.5rem",
           },
         },
       },
@@ -50,10 +42,10 @@ class MyDocument extends Document {
     return (
       <Html css={styles.global} lang="en">
         <Head />
-        <Grid component="body" sx={styles.bodySx}>
+        <body>
           <Main />
           <NextScript />
-        </Grid>
+        </body>
       </Html>
     );
   }

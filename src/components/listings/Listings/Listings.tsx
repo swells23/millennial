@@ -74,7 +74,7 @@ interface ImageProps {
 export default function Listings({
   listingData,
 }: {
-  listingData: ListingData;
+  listingData: ListingData | undefined;
 }) {
   const columns = ["Address", "Photos"];
   const [imageData, setImageData] = React.useState([{ id: "" }]);
@@ -101,6 +101,10 @@ export default function Listings({
   };
 
   const renderRows = () => {
+    if (!listingData) {
+      return;
+    }
+
     return (
       rowsPerPage > 0
         ? listingData.addressList.slice(
@@ -263,30 +267,34 @@ export default function Listings({
           Browse through pictures of recently listed properties.
         </Typography>
       </div>
-      <TableContainer component={Paper}>
-        <Table css={{ minWidth: 320 }} aria-label="listings table">
-          <TableHead>
-            <TableRow>{renderColumns()}</TableRow>
-          </TableHead>
-          <TableBody>{renderRows()}</TableBody>
-        </Table>
-      </TableContainer>
-      <TablePagination
-        component="div"
-        page={page}
-        rowsPerPage={rowsPerPage}
-        rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-        count={listingData.addressList.length}
-        SelectProps={{
-          inputProps: {
-            "aria-label": "rows per page",
-          },
-          native: true,
-        }}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-        ActionsComponent={TablePaginationActions}
-      />
+      {listingData && (
+        <>
+          <TableContainer component={Paper}>
+            <Table css={{ minWidth: 320 }} aria-label="listings table">
+              <TableHead>
+                <TableRow>{renderColumns()}</TableRow>
+              </TableHead>
+              <TableBody>{renderRows()}</TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            component="div"
+            page={page}
+            rowsPerPage={rowsPerPage}
+            rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+            count={listingData.addressList.length}
+            SelectProps={{
+              inputProps: {
+                "aria-label": "rows per page",
+              },
+              native: true,
+            }}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+            ActionsComponent={TablePaginationActions}
+          />
+        </>
+      )}
     </Container>
   );
 }

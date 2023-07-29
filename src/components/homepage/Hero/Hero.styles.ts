@@ -11,13 +11,8 @@ interface StylesObj {
 
 const styles: StylesObj = {
   root: {
+    height: "calc(100vh - 3.5rem)",
     position: "relative",
-  },
-  rootSx: {
-    height: {
-      xs: "calc(100vh - 3.5rem)",
-      md: "calc(100vh - 4rem)",
-    },
   },
   heroImg: {
     height: "100%",

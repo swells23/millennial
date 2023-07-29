@@ -7,14 +7,11 @@ const styles: StylesObj = {
     alignItems: "center",
     display: "flex",
     marginTop: "auto",
+    minHeight: "3.5rem",
   },
   rootSx: {
     backgroundColor: "secondary.main",
     color: "secondary.contrastText",
-    minHeight: {
-      xs: "3.5rem",
-      sm: "4rem",
-    },
   },
 };
 
