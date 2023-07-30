@@ -32,9 +32,12 @@ interface ListingImages {
 
 export default async function GetListings(): Promise<ListingData | undefined> {
   try {
+    const id = `${
+      process.env.NEXT_VERCEL_ENV === "preview" ? "STAGING_" : ""
+    }MILLENNIAL_LISTINGS_ID`;
     const res: Response = await fetch(
       new URL(
-        `${GOOGLE_DRIVE_API}/files?q='${process.env.MILLENNIAL_LISTINGS_ID}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
+        `${GOOGLE_DRIVE_API}/files?q='${process.env[id]}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
       )
     );
 

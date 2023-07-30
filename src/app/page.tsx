@@ -27,9 +27,10 @@ export default async function HomePage() {
 }
 
 async function getData() {
-  const imageData = await GetCarouselImages(
-    process.env.MILLENNIAL_CAROUSEL_IMAGES_ID
-  );
+  const id = `${
+    process.env.NEXT_VERCEL_ENV === "preview" ? "STAGING_" : ""
+  }MILLENNIAL_CAROUSEL_IMAGES_ID`;
+  const imageData = await GetCarouselImages(process.env[id]);
 
   return imageData;
 }
