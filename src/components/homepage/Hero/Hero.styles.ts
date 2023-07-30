@@ -19,7 +19,7 @@ const styles: StylesObj = {
     position: "relative",
     width: "100%",
     "& > img": {
-      filter: "brightness(50%)",
+      filter: "brightness(60%)",
     },
   },
   heroImgSx: {
