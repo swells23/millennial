@@ -8,6 +8,7 @@ describe("GetAgents API", () => {
   const url = new URL(
     `${GOOGLE_DRIVE_API}/files/${process.env.MILLENNIAL_AGENTS_ID}?key=${process.env.MILLENNIAL_API_KEY}&alt=media`
   );
+  const originalEnv = process.env;
 
   describe("successful GET request to google drive api", () => {
     beforeEach(() => {
@@ -29,6 +30,23 @@ describe("GetAgents API", () => {
 
       expect(fetchMock).toHaveBeenCalledWith(url);
       expect(result).toEqual(MOCK_DATA);
+    });
+
+    it("uses staging ID when on the staging environment", async () => {
+      process.env = {
+        ...originalEnv,
+        NEXT_VERCEL_ENV: "preview",
+      };
+
+      const stagingUrl = new URL(
+        `${GOOGLE_DRIVE_API}/files/${process.env.STAGING_MILLENNIAL_AGENTS_ID}?key=${process.env.MILLENNIAL_API_KEY}&alt=media`
+      );
+      const result = await GetAgents();
+
+      expect(fetchMock).toHaveBeenCalledWith(stagingUrl);
+      expect(result).toEqual(MOCK_DATA);
+
+      process.env = originalEnv;
     });
   });
 

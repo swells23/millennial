@@ -13,6 +13,7 @@ describe("GetListings API", () => {
   const url = new URL(
     `${GOOGLE_DRIVE_API}/files?q='${process.env.MILLENNIAL_LISTINGS_ID}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
   );
+  const originalEnv = process.env;
 
   describe("successful GET request to google drive api", () => {
     beforeEach(() => {
@@ -73,6 +74,44 @@ describe("GetListings API", () => {
         drive: [],
         addressList: [],
       });
+    });
+
+    it("uses staging ID when on the staging environment", async () => {
+      process.env = {
+        ...originalEnv,
+        NEXT_VERCEL_ENV: "preview",
+      };
+
+      const stagingUrl = new URL(
+        `${GOOGLE_DRIVE_API}/files?q='${process.env.STAGING_MILLENNIAL_LISTINGS_ID}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
+      );
+      const result = await GetListings();
+
+      expect(fetchMock).toHaveBeenCalledWith(stagingUrl);
+      expect(result).toEqual({
+        drive: [
+          expect.objectContaining({
+            id: MOCK_DATA.files[0].id,
+            name: MOCK_DATA.files[0].name,
+          }),
+          expect.objectContaining({
+            id: MOCK_DATA.files[1].id,
+            name: MOCK_DATA.files[1].name,
+          }),
+        ],
+        addressList: [
+          expect.objectContaining({
+            query: MOCK_DATA.files[0].name,
+            response: expect.any(Object),
+          }),
+          expect.objectContaining({
+            query: MOCK_DATA.files[1].name,
+            response: expect.any(Object),
+          }),
+        ],
+      });
+
+      process.env = originalEnv;
     });
   });
 
