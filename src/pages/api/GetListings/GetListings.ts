@@ -38,7 +38,8 @@ export default async function GetListings(): Promise<ListingData | undefined> {
     const res: Response = await fetch(
       new URL(
         `${GOOGLE_DRIVE_API}/files?q='${process.env[id]}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
-      ), { cache: 'no-store' }
+      ),
+      { cache: "no-store" }
     );
 
     let driveData = await res.json();

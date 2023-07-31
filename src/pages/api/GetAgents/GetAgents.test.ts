@@ -8,7 +8,7 @@ describe("GetAgents API", () => {
   const url = new URL(
     `${GOOGLE_DRIVE_API}/files/${process.env.MILLENNIAL_AGENTS_ID}?key=${process.env.MILLENNIAL_API_KEY}&alt=media`
   );
-  const cache = { cache: "no-store" }
+  const cache = { cache: "no-store" };
   const originalEnv = process.env;
 
   describe("successful GET request to google drive api", () => {

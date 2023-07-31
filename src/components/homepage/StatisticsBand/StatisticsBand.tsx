@@ -4,8 +4,8 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import React from "react";
-import backgroundImg from "../../../assets/bg-1.jpg";
-import livingRoomImg from "../../../assets/living-room.jpg";
+import backgroundImg from "../../../assets/bg-1.webp";
+import livingRoomImg from "../../../assets/living-room.webp";
 import styles from "./StatisticsBand.styles";
 
 export default function StatisticsBand() {

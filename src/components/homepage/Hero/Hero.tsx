@@ -11,8 +11,8 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import heroImg from "../../../assets/hero.jpg";
-import mobileHeroImg from "../../../assets/mobile-hero.jpg";
+import heroImg from "../../../assets/hero.webp";
+import mobileHeroImg from "../../../assets/mobile-hero.webp";
 import styles from "./Hero.styles";
 
 interface Icon {
