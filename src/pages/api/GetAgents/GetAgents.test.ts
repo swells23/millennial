@@ -8,6 +8,7 @@ describe("GetAgents API", () => {
   const url = new URL(
     `${GOOGLE_DRIVE_API}/files/${process.env.MILLENNIAL_AGENTS_ID}?key=${process.env.MILLENNIAL_API_KEY}&alt=media`
   );
+  const cache = { cache: "no-store" }
   const originalEnv = process.env;
 
   describe("successful GET request to google drive api", () => {
@@ -28,7 +29,7 @@ describe("GetAgents API", () => {
     it("returns agentList prop", async () => {
       const result = await GetAgents();
 
-      expect(fetchMock).toHaveBeenCalledWith(url);
+      expect(fetchMock).toHaveBeenCalledWith(url, cache);
       expect(result).toEqual(MOCK_DATA);
     });
 
@@ -43,7 +44,7 @@ describe("GetAgents API", () => {
       );
       const result = await GetAgents();
 
-      expect(fetchMock).toHaveBeenCalledWith(stagingUrl);
+      expect(fetchMock).toHaveBeenCalledWith(stagingUrl, cache);
       expect(result).toEqual(MOCK_DATA);
 
       process.env = originalEnv;
@@ -66,7 +67,7 @@ describe("GetAgents API", () => {
 
       const result = await GetAgents();
 
-      expect(fetchMock).toHaveBeenCalledWith(url);
+      expect(fetchMock).toHaveBeenCalledWith(url, cache);
       expect(result).toBe(undefined);
       expect(console.error).toHaveBeenCalled();
     });

@@ -17,7 +17,7 @@ export default async function GetAgents(): Promise<Array<Agent> | undefined> {
     const res: Response = await fetch(
       new URL(
         `${GOOGLE_DRIVE_API}/files/${process.env[id]}?key=${process.env.MILLENNIAL_API_KEY}&alt=media`
-      )
+      ), { cache: 'no-store' }
     );
     const agentList: Array<Agent> = await res.json();
 

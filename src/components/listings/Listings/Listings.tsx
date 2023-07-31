@@ -113,7 +113,7 @@ export default function Listings({
           )
         : listingData.addressList
     ).map((item, idx) => {
-      const address = item.response.results[0].formatted_address;
+      const address = item.response.results[0]?.formatted_address || item.query;
 
       return (
         <TableRow key={address} css={styles.tableRow} hover>

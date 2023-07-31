@@ -13,6 +13,7 @@ describe("GetListings API", () => {
   const url = new URL(
     `${GOOGLE_DRIVE_API}/files?q='${process.env.MILLENNIAL_LISTINGS_ID}'+in+parents&orderBy=name&key=${process.env.MILLENNIAL_API_KEY}`
   );
+  const cache = { cache: "no-store" };
   const originalEnv = process.env;
 
   describe("successful GET request to google drive api", () => {
@@ -33,7 +34,7 @@ describe("GetListings API", () => {
     it("props return data when listing folders are created", async () => {
       const result = await GetListings();
 
-      expect(fetchMock).toHaveBeenCalledWith(url);
+      expect(fetchMock).toHaveBeenCalledWith(url, cache);
       expect(result).toEqual({
         drive: [
           expect.objectContaining({
@@ -69,7 +70,7 @@ describe("GetListings API", () => {
 
       const result = await GetListings();
 
-      expect(fetchMock).toHaveBeenCalledWith(url);
+      expect(fetchMock).toHaveBeenCalledWith(url, cache);
       expect(result).toEqual({
         drive: [],
         addressList: [],
@@ -87,7 +88,7 @@ describe("GetListings API", () => {
       );
       const result = await GetListings();
 
-      expect(fetchMock).toHaveBeenCalledWith(stagingUrl);
+      expect(fetchMock).toHaveBeenCalledWith(stagingUrl, cache);
       expect(result).toEqual({
         drive: [
           expect.objectContaining({
@@ -131,7 +132,7 @@ describe("GetListings API", () => {
 
       const result = await GetListings();
 
-      expect(fetchMock).toHaveBeenCalledWith(url);
+      expect(fetchMock).toHaveBeenCalledWith(url, cache);
       expect(result).toBe(undefined);
       expect(console.error).toHaveBeenCalled();
     });
