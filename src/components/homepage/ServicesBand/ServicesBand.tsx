@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import styles from "./ServicesBand.styles";
+import tempVideo from "../../../assets/home-digital-tour-compressed.mp4";
 
 export default function SerivesBand() {
   return (
@@ -22,10 +23,10 @@ export default function SerivesBand() {
               css={styles.video}
               controls={true}
               preload="none"
-              poster="https://drive.google.com/uc?export=view&id=1oaj28coPUZaCw2WgvoTKUYgf_zGfUZ_y"
+              poster="https://lh3.googleusercontent.com/d/1oaj28coPUZaCw2WgvoTKUYgf_zGfUZ_y"
             >
               <source
-                src="https://drive.google.com/uc?export=view&id=1eZgh5IUgr8c3Hubnzgky8kDOAqwANx00"
+                src={tempVideo}
                 type="video/mp4"
               />
             </video>

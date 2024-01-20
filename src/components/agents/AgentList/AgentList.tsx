@@ -39,7 +39,7 @@ export default function AgentList({
       const pictureId = SRC_ID_PATTERN.exec(src);
 
       if (pictureId) {
-        return `${GOOGLE_DRIVE_EXPORT}&id=${pictureId[1]}`;
+        return `${GOOGLE_DRIVE_EXPORT}${pictureId[1]}`;
       }
     }
     return src;

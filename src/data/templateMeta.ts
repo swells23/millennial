@@ -2,7 +2,7 @@ export const PROTOCOL = "https",
   HOSTNAME = "millennialrealtyinvestments.com",
   DOMAIN = `${PROTOCOL}://${HOSTNAME}`,
   GOOGLE_DRIVE_API = "https://www.googleapis.com/drive/v3",
-  GOOGLE_DRIVE_EXPORT = "https://drive.google.com/uc?export=view";
+  GOOGLE_DRIVE_EXPORT = "https://lh3.googleusercontent.com/d/";
 
 export const navItems = [
   {

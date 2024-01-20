@@ -159,7 +159,7 @@ export default function Listings({
   };
 
   const imgLoader = ({ src }: { src: string }) => {
-    return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
+    return `${GOOGLE_DRIVE_EXPORT}${src}`;
   };
 
   const renderImgList = () => {

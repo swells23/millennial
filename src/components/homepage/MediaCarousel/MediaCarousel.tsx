@@ -27,7 +27,7 @@ export default function MediaCarousel({
   imageData: ImageData | undefined;
 }) {
   const imgLoader = ({ src }: { src: string }) => {
-    return `${GOOGLE_DRIVE_EXPORT}&id=${src}`;
+    return `${GOOGLE_DRIVE_EXPORT}${src}`;
   };
 
   const renderImgList = (): Array<React.ReactElement> | undefined => {
