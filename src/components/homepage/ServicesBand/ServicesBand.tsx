@@ -25,10 +25,7 @@ export default function SerivesBand() {
               preload="none"
               poster="https://lh3.googleusercontent.com/d/1oaj28coPUZaCw2WgvoTKUYgf_zGfUZ_y"
             >
-              <source
-                src={tempVideo}
-                type="video/mp4"
-              />
+              <source src={tempVideo} type="video/mp4" />
             </video>
           </Grid>
           <Grid item md={6}>
