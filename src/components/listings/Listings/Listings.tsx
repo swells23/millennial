@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
+import Skeleton from "@mui/material/Skeleton";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -77,6 +78,8 @@ export default function Listings({
   listingData: ListingData | undefined;
 }) {
   const columns = ["Address", "Photos"];
+  const rows = [0, 1, 2, 3, 4];
+
   const [imageData, setImageData] = React.useState([{ id: "" }]);
   const [open, setOpen] = React.useState(false);
 
@@ -102,7 +105,20 @@ export default function Listings({
 
   const renderRows = () => {
     if (!listingData) {
-      return;
+      return rows.map((row) => {
+        return (
+          <TableRow key={`address-row-${row}`} css={styles.tableRow} hover>
+            <TableCell component="th" scope="row">
+              <Skeleton height={24} sx={{ maxWidth: "600px" }} />
+            </TableCell>
+            <TableCell>
+              <Button aria-label="view images">
+                <Typography>View</Typography>
+              </Button>
+            </TableCell>
+          </TableRow>
+        );
+      });
     }
 
     return (
@@ -267,34 +283,32 @@ export default function Listings({
           Browse through pictures of recently listed properties.
         </Typography>
       </div>
-      {listingData && (
-        <>
-          <TableContainer component={Paper}>
-            <Table css={{ minWidth: 320 }} aria-label="listings table">
-              <TableHead>
-                <TableRow>{renderColumns()}</TableRow>
-              </TableHead>
-              <TableBody>{renderRows()}</TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            component="div"
-            page={page}
-            rowsPerPage={rowsPerPage}
-            rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-            count={listingData.addressList.length}
-            SelectProps={{
-              inputProps: {
-                "aria-label": "rows per page",
-              },
-              native: true,
-            }}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-            ActionsComponent={TablePaginationActions}
-          />
-        </>
-      )}
+      <>
+        <TableContainer component={Paper}>
+          <Table css={{ minWidth: 320 }} aria-label="listings table">
+            <TableHead>
+              <TableRow>{renderColumns()}</TableRow>
+            </TableHead>
+            <TableBody>{renderRows()}</TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          component="div"
+          page={page}
+          rowsPerPage={rowsPerPage}
+          rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
+          count={listingData ? listingData.addressList.length : rows.length}
+          SelectProps={{
+            inputProps: {
+              "aria-label": "rows per page",
+            },
+            native: true,
+          }}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          ActionsComponent={TablePaginationActions}
+        />
+      </>
     </Container>
   );
 }
