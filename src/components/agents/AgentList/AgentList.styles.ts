@@ -76,7 +76,9 @@ const styles: StylesObj = {
   },
   linksSkeleton: {
     fontSize: "0.875rem",
-    maxWidth: "15rem",
+    marginTop: ".5rem",
+    marginLeft: ".5rem",
+    maxWidth: "12rem",
     width: "100%",
   },
 };

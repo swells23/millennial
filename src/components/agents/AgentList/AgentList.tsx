@@ -105,6 +105,48 @@ export default function AgentList({
     const imgLoader = ({ src }: { src: string }) => {
       return src;
     };
+    const loadingCards = [0, 1];
+
+    if (!data) {
+      return loadingCards?.map((item) => {
+        return (
+          <Grid item key={`card-${item}`} xs={12} lg={6}>
+            <Card css={styles.card}>
+              <Grid container>
+                <Grid
+                  item
+                  css={styles.cardImageWrapper}
+                  sx={styles.cardImageWrapperSx}
+                  xs={5}
+                  sm={4}
+                >
+                  <Skeleton variant="rectangular" height="100%" />
+                </Grid>
+                <Grid
+                  item
+                  sx={[styles.cardNameSx, styles.cardNameMobileSx]}
+                  xs={7}
+                >
+                  <CardContent>{renderCardName("", "")}</CardContent>
+                </Grid>
+                <Grid item xs={12} sm={8}>
+                  <CardContent color="secondary">
+                    <Grid sx={[styles.cardNameSx, styles.cardNameDesktopSx]}>
+                      {renderCardName("", "")}
+                    </Grid>
+                    <Grid css={styles.contactInfo} sx={styles.contactInfoSx}>
+                      {renderContact("", "", Phone)}
+                      {renderContact("", "", Email)}
+                    </Grid>
+                  </CardContent>
+                  {renderLinks("", "")}
+                </Grid>
+              </Grid>
+            </Card>
+          </Grid>
+        );
+      });
+    }
 
     return data?.map((item: Agent) => {
       return (

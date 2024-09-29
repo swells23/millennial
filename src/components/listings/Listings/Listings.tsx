@@ -78,7 +78,7 @@ export default function Listings({
   listingData: ListingData | undefined;
 }) {
   const columns = ["Address", "Photos"];
-  const rows = [0, 1, 2, 3, 4];
+  const loadingRows = [0, 1, 2, 3, 4];
 
   const [imageData, setImageData] = React.useState([{ id: "" }]);
   const [open, setOpen] = React.useState(false);
@@ -105,7 +105,7 @@ export default function Listings({
 
   const renderRows = () => {
     if (!listingData) {
-      return rows.map((row) => {
+      return loadingRows.map((row) => {
         return (
           <TableRow key={`address-row-${row}`} css={styles.tableRow} hover>
             <TableCell component="th" scope="row">
@@ -297,7 +297,9 @@ export default function Listings({
           page={page}
           rowsPerPage={rowsPerPage}
           rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
-          count={listingData ? listingData.addressList.length : rows.length}
+          count={
+            listingData ? listingData.addressList.length : loadingRows.length
+          }
           SelectProps={{
             inputProps: {
               "aria-label": "rows per page",

@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import DefaultTemplate from "../../components/layout/DefaultTemplate";
-import Listings from "../../components/listings/Listings";
+import AgentList from "../../components/agents/AgentList";
 
 export default function Loading() {
   return (
     <DefaultTemplate>
-      <Listings listingData={undefined} />
+      <AgentList data={undefined} />
     </DefaultTemplate>
   );
 }
